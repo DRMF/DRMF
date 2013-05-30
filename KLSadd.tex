@@ -1,0 +1,1150 @@
+\documentclass[twoside,11pt]{article}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{22cm}
+\setlength{\topmargin}{0cm}
+\setlength{\oddsidemargin}{0.2mm}
+\setlength{\evensidemargin}{0.2mm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+\newcommand\sa{\smallskipamount}
+\newcommand\sLP{\\[\sa]}
+\newcommand\sPP{\\[\sa]\indent}
+\newcommand\CC{\mathbb{C}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\al\alpha
+\newcommand\be\beta
+\newcommand\ga\gamma
+\newcommand\de\delta
+\newcommand\tha\theta
+\newcommand\la\lambda
+\newcommand\om\omega
+\newcommand\Ga{\Gamma}
+\newcommand\half{\frac12}
+\newcommand\thalf{\tfrac12}
+\newcommand\iy\infty
+\newcommand\wt{\widetilde}
+\newcommand\Zpos{\ZZ_{>0}}
+\newcommand\Znonneg{\ZZ_{\ge0}}
+\newcommand\const{{\rm const.}\,}
+\newcommand{\hyp}[5]{\,\mbox{}_{#1}F_{#2}\!\left(
+  \genfrac{}{}{0pt}{}{#3}{#4};#5\right)}
+\newcommand{\qhyp}[5]{\,\mbox{}_{#1}\phi_{#2}\!\left(
+  \genfrac{}{}{0pt}{}{#3}{#4};#5\right)}
+\newcommand\LHS{left-hand side}
+\newcommand\RHS{right-hand side}
+
+\begin{document}
+
+\title{Additions to Chapters 9 and 14 in the book
+``Hypergeometric orthogonal polynomials and their $q$-analogues''
+by Koekoek, Lesky \& Swarttouw}
+\author{Tom H. Koornwinder,
+\small\tt T.H.Koornwinder@uva.nl}
+
+\date{May 3, 2013}
+\maketitle
+%until 93
+\subsection*{Introduction}
+This informal manuscript contains some formulas about ($q$)-hypergeometric
+orthogonal polynomials which I missed but wanted to use
+while consulting Chapters 9 and 14 in the book
+\sLP
+R. Koekoek, P.~A. Lesky and R.~F. Swarttouw,
+{\em Hypergeometric orthogonal polynomials and their $q$-analogues},
+Springer-Verlag, 2010.
+\sLP
+These chapters form together the (slightly extended) successor of the report
+\sLP
+R.~Koekoek and  R.~F. Swarttouw,
+{\em The Askey-scheme of hypergeometric orthogonal
+polynomials and its $q$-analogue},
+Report 98-17, Faculty of Technical Mathematics and Informatics,
+Delft University of Technology, 1998;
+\url{http://aw.twi.tudelft.nl/~koekoek/askey/}.
+\sPP
+Usually, any type of formula I give for a special class of polynomials, will suggest
+a similar formula for many other classes, but I have not aimed at completeness
+by filling in a formula of such type at all places. The resulting choice of formulas is
+rather arbitrary, just depending on the formulas which I happened to need or which raised my interest.
+For each formula I give  a suitable reference or I sketch a
+proof.
+It is my intention to gradually extend this collection of formulas.
+%
+\paragraph{Conventions}
+The (x.y) and (x.y.z) type subsection numbers, the
+(x.y.z) type formula numbers, and the [x] type citation numbers
+refer to the book by Koekoek et al.
+The (x) type formula numbers refer to this manuscript and the [Kx] type citation numbers refer to citations which are not in the book.
+Some standard references like \cite{DLMF} are given by special acronyms.
+
+$N$ is always a positive integer. Always assume $n$ to be a nonnegative
+integer or, if $N$ is present, to be in $\{0,1,\ldots,N\}$.
+Throughout assume $0<q<1$.
+
+For each family the coefficient of the term of highest degree of the
+orthogonal polynomial of degree $n$ can be found in the book as the
+coefficient of $p_n(x)$ in the formula after the main formula under
+the heading ``Normalized Recurrence Relation". If that main formula is numbered
+as (x.y.z) then I will refer to the second formula as (x.y.zb).
+%
+\subsection*{Generalities}
+\paragraph{Critera for uniqueness of orthogonality measure}
+According to Shohat \& Tamarkin \cite[p.50]{K6}
+orthonormal polynomials $p_n$ have a unique orthogonality measure (up to positive
+constant factor) if
+for some $z\in\CC$ we have
+\begin{equation}
+\sum_{n=0}^\iy |p_n(z)|^2 = \iy.
+\label{90}
+\end{equation}
+
+Also (see Shohat \& Tamarkin \cite[p.59]{K6}),
+monic orthogonal polynomials $p_n$ with three-term recurrence relation
+$x p_n(x) = p_{n+1}(x)+B_n p_n(x)+C_n p_{n-1}(x)$
+($C_n$ necessarily positive)
+have a unique orthogonality measure if
+\begin{equation}
+\sum_{n=1}^\iy (C_n)^{-1/2}=\iy.
+\label{93}
+\end{equation}
+
+Furthermore, if orthogonal polynomials have an orthogonality measure with
+bounded support, then this is unique (see Chihara \cite{146}).
+%
+\paragraph{Even orthogonality measure}
+If $\{p_n\}$ is a system of orthogonal polynomials with respect to an even
+orthogonality measure which satisfies the three-term recurrence relation
+\begin{equation*}
+x p_n(x)=A_n p_{n+1}(x)+C_n p_{n-1}(x)
+\end{equation*}
+then
+\begin{equation}
+\frac{p_{2n}(0)}{p_{2n-2}(0)}=-\,\frac{C_{2n-1}}{A_{2n-1}}\,.
+\label{1}
+\end{equation}
+%
+\paragraph{Appell's bivariate hypergeometric function $F_4$}
+This is defined by
+\begin{equation}
+F_4(a,b;c,c';x,y):=\sum_{m,n=0}^\iy\frac{(a)_{m+n}b_{m+n}}{(c)_m(c')_n\,m!\,n!}\,
+x^my^n\qquad(|x|^\half+|y|^\half<1),
+\label{62}
+\end{equation}
+see \cite[5.7(9), 5.7(44)]{HTF1} or \cite[(16.3.4)]{DLMF}.
+There is the reduction formula
+\begin{equation*}
+F_4\left(a,b;b,b;\frac{-x}{(1-x)(1-y)},\frac{-y}{(1-x)(1-y)}\right)=
+(1-x)^a(1-y)^a\,\hyp21{a,1+a-b}b{xy},
+\end{equation*}
+see \cite[5.10(7)]{HTF1}. When combined with the quadratic transformation
+\cite[2.11(34)]{HTF1} (here $a-b-1$ should be replaced by $a-b+1$),
+see also \cite[(15.8.15)]{DLMF}, this yields
+\begin{multline*}
+F_4\left(a,b;b,b;\frac{-x}{(1-x)(1-y)},\frac{-y}{(1-x)(1-y)}\right)\\
+=\left(\frac{(1-x)(1-y)}{1+xy}\right)^a\,
+\hyp21{\thalf a,\thalf(a+1)}b{\frac{4xy}{(1+xy)^2}}.
+\end{multline*}
+This can be rewritten as
+\begin{equation}
+F_4(a,b;b,b;x,y)=(1-x-y)^{-a}\,\hyp21{\thalf a,\thalf(a+1)}b
+{\frac{4xy}{(1-x-y)^2}}.
+\label{63}
+\end{equation}
+Note that, if $x,y\ge0$ and $x^\half+y^\half<1$, then
+$1-x-y>0$ and $0\le\frac{4xy}{(1-x-y)^2}<1$.
+%
+\subsection*{9.1 Wilson}
+%
+\paragraph{Symmetry}
+The Wilson polynomial $W_n(y;a,b,c,d)$ is symmetric
+in $a,b,c,d$.
+\\
+This follows from the orthogonality relation (9.1.2)
+together with the value of its coefficient of $y^n$ given in (9.1.5b).
+Alternatively, combine (9.1.1) with \cite[Theorem 3.1.1]{AAR}.
+%
+\paragraph{Special value}
+\begin{equation}
+W_n(-a^2;a,b,c,d)=(a+b)_n(a+c)_n(a+d)_n\,,
+\label{91}
+\end{equation}
+and similarly for arguments $-b^2$, $-c^2$ and
+$-d^2$ by symmetry of $W_n$ in $a,b,c,d$.
+%
+\paragraph{Uniqueness of orthogonality measure}
+Under the assumptions on $a,b,c,d$ for (9.1.2) or (9.1.3) the orthogonality
+measure is unique up to constant factor.
+
+For the proof assume without
+loss of generality (by the symmetry in $a,b,c,d$) that $\Re a\ge0$.
+Write the \RHS\ of (9.1.2) or (9.1.3) as $h_n\de_{nm}$.
+Observe from (9.1.2) and \eqref{91} that
+\[
+\frac{|W_n(-a^2;a,b,c,d)|^2}{h_n} = O(n^{4\Re a-1})\quad\hbox{as $n\to\iy$.}
+\]
+Therefore \eqref{90} holds, from which the uniqueness of the orthogonality
+measure follows.
+
+By a similar, but necessarily more complicated argument Ismail et al.\
+\cite[Section 3]{281} proved the uniqueness of orthogonality measure for
+associated Wilson polynomials.
+%
+\subsection*{9.3 Continuous dual Hahn}
+%
+\paragraph{Symmetry}
+The continuou dual Hahn polynomial $S_n(y;a,b,c)$ is symmetric
+in $a,b,c$.\\
+This follows from the orthogonality relation (9.3.2)
+together with the value of its coefficient of $y^n$ given in (9.3.5b).
+Alternatively, combine (9.3.1) with [??].
+%
+\paragraph{Special value}
+\begin{equation}
+S_n(-a^2;a,b,c,d)=(a+b)_n(a+c)_n\,,
+\label{92}
+\end{equation}
+and similarly for arguments $-b^2$ and $-c^2$ by symmetry of $S_n$ in $a,b,c$.
+%
+\paragraph{Uniqueness of orthogonality measure}
+Under the assumptions on $a,b,c$ for (9.3.2) or (9.3.3) the orthogonality
+measure is unique up to constant factor.
+
+For the proof assume without
+loss of generality (by the symmetry in $a,b,c,d$) that $\Re a\geq0$.
+Write the \RHS\ of (9.3.2) or (9.3.3) as $h_n\de_{nm}$.
+Observe from (9.3.2) and \eqref{92} that
+\[
+\frac{|S_n(-a^2;a,b,c)|^2}{h_n} = O(n^{2\Re a-1})\quad
+\hbox{as $n\to\iy$.}
+\]
+Therefore \eqref{90} holds, from which the uniqueness of the orthogonality
+measure follows.
+%
+\subsection*{9.4 Continuous Hahn}
+%
+\paragraph{Uniqueness of orthogonality measure}
+The coefficient of $p_{n-1}(x)$ in (9.4.4) behaves as $O(n^2)$ as $n\to\iy$.
+Hence \eqref{93} holds, by which the orthogonality measure is unique.
+%
+\subsection*{9.5 Hahn}
+%
+\paragraph{Special values}
+From (9.5.3) and \eqref{1} it follows that
+\begin{equation}
+Q_{2n}(N;\al,\al,2N)=\frac{(\thalf)_n(N+\al+1)_n}{(-N+\thalf)_n(\al+1)_n}\,.
+\label{30}
+\end{equation}
+From (9.5.1) and \cite[(15.4.24)]{DLMF} it follows that
+\begin{equation}
+Q_N(x;\al,\be,N)=\frac{(-N-\be)_x}{(\al+1)_x}\qquad(x=0,1,\ldots,N).
+\label{44}
+\end{equation}
+%
+\paragraph{Duality}
+The Remark on p.208 gives the duality between Hahn and dual Hahn polynomials:
+%
+\begin{equation}
+Q_n(x;\al,\be,N)=R_x(n(n+\al+\be+1);\al,\be,N)\quad(n,x\in\{0,1,\ldots N\}).
+\label{45}
+\end{equation}
+%
+\subsection*{9.6 Dual Hahn}
+%
+\paragraph{Re: (9.6.11).}
+The generating function (9.6.11) can be written in a more conceptual way as
+\begin{equation}
+(1-t)^x\,\hyp21{x-N,x+\ga+1}{-\de-N}t=\frac{N!}{(\de+1)_N}\,
+\sum_{n=0}^N \om_n\,R_n(\la(x);\ga,\de,N)\,t^n,
+\label{2}
+\end{equation}
+where
+\begin{equation}
+\om_n:=\binom{\ga+n}n \binom{\de+N-n}{N-n},
+\label{3}
+\end{equation}
+i.e., the denominator on the \RHS\ of (9.6.2).
+By the duality between Hahn polynomials and dual Hahn polynomials (see \eqref{45}) the above generating function can be rewritten in
+terms of Hahn polynomials:
+\begin{equation}
+(1-t)^n\,\hyp21{n-N,n+\al+1}{-\be-N}t=\frac{N!}{(\be+1)_N}\,
+\sum_{x=0}^N w_x\,Q_n(x;\al,\be,N)\,t^x,
+\label{4}
+\end{equation}
+where
+\begin{equation}
+w_x:=\binom{\al+x}x \binom{\be+N-x}{N-x},
+\label{5}
+\end{equation}
+i.e., the weight occurring in the orthogonality relation (9.5.2)
+for Hahn polynomials.
+%
+\paragraph{Special value}
+By \eqref{44} and \eqref{45} we have
+\begin{equation}
+R_n(N(N+\ga+\de+1);\ga,\de,N)=\frac{(-N-\de)_n}{(\ga+1)_n}\,.
+\label{47}
+\end{equation}
+%
+\subsection*{9.7 Meixner-Pollaczek}
+%
+\paragraph{Uniqueness of orthogonality measure}
+The coefficient of $p_{n-1}(x)$ in (9.7.4) behaves as $O(n^2)$ as $n\to\iy$.
+Hence \eqref{93} holds, by which the orthogonality measure is unique.
+%
+\subsection*{9.8 Jacobi}
+%
+\paragraph{Orthogonality relation}
+Write the \RHS\ of (9.8.2) as $h_n\,\de_{m,n}$. Then
+\begin{equation}
+\frac{h_n}{h_0}=
+\frac{n+\al+\be+1}{2n+\al+\be+1}\,
+\frac{(\al+1)_n(\be+1)_n}{(\al+\be+2)_n\,n!}\,.
+\label{60}
+\end{equation}
+%
+\paragraph{Symmetry}
+\begin{equation}
+P_n^{(\al,\be)}(-x)=(-1)^n\,P_n^{(\be,\al)}(x).
+\label{48}
+\end{equation}
+Use (9.8.2) and (9.8.5b) or see \cite[Table 18.6.1]{DLMF}.
+%
+\paragraph{Special values}
+\begin{equation}
+P_n^{(\al,\be)}(1)=\frac{(\al+1)_n}{n!}\,,\quad
+P_n^{(\al,\be)}(-1)=\frac{(-1)^n(\be+1)_n}{n!}\,.
+\label{50}
+\end{equation}
+Use (9.8.1) and \eqref{48} or see \cite[Table 18.6.1]{DLMF}.
+%
+\paragraph{Bilateral generating functions}
+For $0\le r<1$ and $x,y\in[-1,1]$ we have in terms of $F_4$ (see~\eqref{62}):
+\begin{align}
+&\sum_{n=0}^\iy\frac{(\al+\be+1)_n\,n!}{(\al+1)_n(\be+1)_n}\,r^n\,
+P_n^{(\al,\be)}(x)\,P_n^{(\al,\be)}(y)
+=\frac1{(1+r)^{\al+\be+1}}
+\nonumber\\
+&\qquad\quad\times F_4\Big(\thalf(\al+\be+1),\thalf(\al+\be+2);\al+1,\be+1;
+\frac{r(1-x)(1-y)}{(1+r)^2},\frac{r(1+x)(1+y)}{(1+r)^2}\Big),
+\label{58}\sLP
+&\sum_{n=0}^\iy\frac{2n+\al+\be+1}{n+\al+\be+1}
+\frac{(\al+\be+2)_n\,n!}{(\al+1)_n(\be+1)_n}\,r^n\,
+P_n^{(\al,\be)}(x)\,P_n^{(\al,\be)}(y)
+=\frac{1-r}{(1+r)^{\al+\be+2}}\nonumber\\
+&\qquad\quad\times F_4\Big(\thalf(\al+\be+2),\thalf(\al+\be+3);\al+1,\be+1;
+\frac{r(1-x)(1-y)}{(1+r)^2},\frac{r(1+x)(1+y)}{(1+r)^2}\Big).
+\label{59}
+\end{align}
+Formulas \eqref{58} and \eqref{59} were first
+given by Bailey \cite[(2.1), (2.3)]{91}.
+See Stanton \cite{485} for a shorter proof. (However, in the second line of
+\cite[(1)]{485} $z$ and $Z$ should be interchanged.)$\;$
+As observed in Bailey \cite[p.10]{91}, \eqref{59} follows from \eqref{58}
+by applying the operator $r^{-\half(\al+\be-1)}\,\frac d{dr}\circ r^{\half(\al+\be+1)}$
+to both sides of \eqref{58}.
+In view of \eqref{60}, formula \eqref{59} is the Poisson kernel for Jacobi
+polynomials. The \RHS\ of \eqref{59} makes clear that this kernel is positive.
+See also the discussion in Askey \cite[following (2.32)]{46}.
+%
+\paragraph{Quadratic transformations}
+\begin{align}
+\frac{C_{2n}^{(\al+\half)}(x)}{C_{2n}^{(\al+\half)}(1)}
+=\frac{P_{2n}^{(\al,\al)}(x)}{P_{2n}^{(\al,\al)}(1)}
+&=\frac{P_n^{(\al,-\half)}(2x^2-1)}{P_n^{(\al,-\half)}(1)}\,,
+\label{51}\\
+\frac{C_{2n+1}^{(\al+\half)}(x)}{C_{2n+1}^{(\al+\half)}(1)}
+=\frac{P_{2n+1}^{(\al,\al)}(x)}{P_{2n+1}^{(\al,\al)}(1)}
+&=\frac{x\,P_n^{(\al,\half)}(2x^2-1)}{P_n^{(\al,\half)}(1)}\,.
+\label{52}
+\end{align}
+See p.221, Remarks, last two formulas together with \eqref{50} and \eqref{49}.
+Or see \cite[(18.7.13), (18.7.14)]{DLMF}.
+%
+\paragraph{Differentiation formulas}
+Each differentiation formula is given in two equivalent forms.
+\begin{equation}
+\begin{split}
+\frac d{dx}\left((1-x)^\al P_n^{(\al,\be)}(x)\right)&=
+-(n+\al)\,(1-x)^{\al-1} P_n^{(\al-1,\be+1)}(x),\\
+\left((1-x)\frac d{dx}-\al\right)P_n^{(\al,\be)}(x)&=
+-(n+\al)\,P_n^{(\al-1,\be+1)}(x).
+\end{split}
+\label{68}
+\end{equation}
+%
+\begin{equation}
+\begin{split}
+\frac d{dx}\left((1+x)^\be P_n^{(\al,\be)}(x)\right)&=
+(n+\be)\,(1+x)^{\be-1} P_n^{(\al+1,\be-1)}(x),\\
+\left((1+x)\frac d{dx}+\be\right)P_n^{(\al,\be)}(x)&=
+(n+\be)\,P_n^{(\al+1,\be-1)}(x).
+\end{split}
+\label{69}
+\end{equation}
+Formulas \eqref{68} and \eqref{69} follow from \cite[(15.5.4), (15.5.6)]{DLMF}
+together with (9.8.1). They also follow from each other by \eqref{48}.
+%
+\paragraph{Generalized Gegenbauer polynomials}
+See \cite[p.156]{146}.
+These are defined by
+\begin{equation}
+S_{2m}^{(\al,\be)}(x):=\const P_m^{(\al,\be)}(2x^2-1),\qquad
+S_{2m+1}^{(\al,\be)}(x):=\const x\,P_m^{(\al,\be+1)}(2x^2-1).
+\label{70}
+\end{equation}
+Then for $\al,\be>-1$ we have the orthogonality relation
+\begin{equation}
+\int_{-1}^1 S_m^{(\al,\be)}(x)\,S_n^{(\al,\be)}(x)\,|x|^{2\be+1}(1-x^2)^\al\,dx
+=0\qquad(m\ne n).
+\label{71}
+\end{equation}
+If we define the {\em Dunkl operator} $T_\mu$ by
+\begin{equation}
+(T_\mu f)(x):=f'(x)+\mu\,\frac{f(x)-f(-x)}x
+\label{72}
+\end{equation}
+and if we choose the constants in \eqref{70} as
+\begin{equation}
+S_{2m}^{(\al,\be)}(x)=\frac{(\al+\be+1)_m}{(\be+1)_m}\, P_m^{(\al,\be)}(2x^2-1),\quad
+S_{2m+1}^{(\al,\be)}(x)=\frac{(\al+\be+1)_{m+1}}{(\be+1)_{m+1}}\,
+x\,P_m^{(\al,\be+1)}(2x^2-1)
+\label{73}
+\end{equation}
+then (see \cite[(1.6)]{K5})
+\begin{equation}
+T_{\be+\half}S_n^{(\al,\be)}=2(\al+\be+1)\,S_{n-1}^{(\al+1,\be)}.
+\label{74}
+\end{equation}
+Formula \eqref{74} with \eqref{73} substituted gives rise to two
+differentiation formulas involving Jacobi polynomials which are equivalent to
+(9.8.7) and \eqref{69}.
+
+Composition of \eqref{74} with itself gives
+\[
+T_{\be+\half}^2S_n^{(\al,\be)}=4(\al+\be+1)(\al+\be+2)\,S_{n-2}^{(\al+2,\be)},
+\]
+which is equivalent to the composition of (9.8.7) and \eqref{69}:
+\begin{equation}
+\left(\frac{d^2}{dx^2}+\frac{2\be+1}x\,\frac d{dx}\right)P_n^{(\al,\be)}(2x^2-1)
+=4(n+\al+\be+1)(n+\be)\,P_{n-1}^{(\al+2,\be)}(2x^2-1).
+\label{75}
+\end{equation}
+Formula \eqref{75} was also given in \cite[(2.4)]{322}.
+%
+\subsection*{9.8.1 Gegenbauer / Ultraspherical}
+%
+\paragraph{Notation}
+Here the Gegenbauer polynomial is denoted by $C_n^\la$ instead of $C_n^{(\la)}$.
+%
+\paragraph{Orthogonality relation}
+Write the \RHS\ of (9.8.20) as $h_n\,\de_{m,n}$. Then
+\begin{equation}
+\frac{h_n}{h_0}=
+\frac\la{\la+n}\,\frac{(2\la)_n}{n!}\,.
+\label{61}
+\end{equation}
+%
+\paragraph{Hypergeometric representation}
+Beside (9.8.19) we have also
+\begin{equation}
+C_n^\lambda(x)=\sum_{\ell=0}^{\lfloor n/2\rfloor}\frac{(-1)^{\ell}(\lambda)_{n-\ell}}
+{\ell!\;(n-2\ell)!}\,(2x)^{n-2\ell}
+=(2x)^{n}\,\frac{(\lambda)_{n}}{n!}\,
+\hyp21{-\thalf n,-\thalf n+\thalf}{1-\la-n}{\frac1{x^2}}.
+\label{57}
+\end{equation}
+See \cite[(18.5.10)]{DLMF}.
+%
+\paragraph{Special value}
+\begin{equation}
+C_n^{\la}(1)=\frac{(2\la)_n}{n!}\,.
+\label{49}
+\end{equation}
+Use (9.8.19) or see \cite[Table 18.6.1]{DLMF}.
+%
+\paragraph{Expression in terms of Jacobi}
+%
+\begin{equation}
+\frac{C_n^\la(x)}{C_n^\la(1)}=
+\frac{P_n^{(\la-\half,\la-\half)}(x)}{P_n^{(\la-\half,\la-\half)}(1)}\,,\qquad
+C_n^\la(x)=\frac{(2\la)_n}{(\la+\thalf)_n}\,P_n^{(\la-\half,\la-\half)}(x).
+\label{65}
+\end{equation}
+%
+\paragraph{Re: (9.8.21)}
+By iteration of recurrence relation (9.8.21):
+\begin{multline}
+x^2 C_n^\la(x)=
+\frac{(n+1)(n+2)}{4(n+\la)(n+\la+1)}\,C_{n+2}^\la(x)+
+\frac{n^2+2n\la+\la-1}{2(n+\la-1)(n+\la+1)}\,C_n^\la(x)\\
++\frac{(n+2\la-1)(n+2\la-2)}{4(n+\la)(n+\la-1)}\,C_{n-2}^\la(x).
+\label{6}
+\end{multline}
+%
+\paragraph{Bilateral generating functions}
+\begin{multline}
+\sum_{n=0}^\iy\frac{n!}{(2\la)_n}\,r^n\,C_n^\la(x)\,C_n^\la(y)
+=\frac1{(1-2rxy+r^2)^\la}\,\hyp21{\thalf\la,\thalf(\la+1)}{\la+\thalf}
+{\frac{4r^2(1-x^2)(1-y^2)}{(1-2rxy+r^2)^2}}\\
+(r\in(-1,1),\;x,y\in[-1,1]).
+\label{66}
+\end{multline}
+For the proof put $\be:=\al$ in \eqref{58}, then use \eqref{63} and \eqref{65}.
+The Poisson kernel for Gegenbauer polynomials can be derived in a similar way
+from \eqref{59}, or alternatively by applying the operator
+$r^{-\la+1}\frac d{dr}\circ r^\la$ to both sides of \eqref{66}:
+\begin{multline}
+\sum_{n=0}^\iy\frac{\la+n}\la\,\frac{n!}{(2\la)_n}\,r^n\,C_n^\la(x)\,C_n^\la(y)
+=\frac{1-r^2}{(1-2rxy+r^2)^{\la+1}}\\
+\times\hyp21{\thalf(\la+1),\thalf(\la+2)}{\la+\thalf}
+{\frac{4r^2(1-x^2)(1-y^2)}{(1-2rxy+r^2)^2}}\qquad
+(r\in(-1,1),\;x,y\in[-1,1]).
+\label{67}
+\end{multline}
+Formula \eqref{67} was obtained by Gasper \& Rahman \cite[(4.4)]{234}
+as a limit case of their formula for the Poisson kernel for continuous
+$q$-ultraspherical polynomials.
+%
+\paragraph{A trigonometric expansion}
+By \cite[(14.13.1), (14.3.21), (5.5.5)]{DLMF}:
+\begin{align}
+C_n^\la(\cos\tha)=\frac{\Ga(2\la+1)}{2^{2\la}\Ga(\la+1)^2}\,
+\frac{(2\la)_n}{(\la+1)_n}\,(\sin\tha)^{1-2\la}\,
+\sum_{k=0}^\iy\frac{(1-\la)_k(n+1)_k}{(n+\la+1)_k k!}\,
+\sin\big((2k+n+1)\tha\big)
+\label{7}\\
+(\la>0,\;0<\tha<\pi).
+\nonumber
+\end{align}
+For $\la\in\Zpos$ the above series terminates after the term with
+$k=\la-1$.
+%
+\paragraph{Fourier transform}
+\begin{equation}
+\frac{\Ga(\la+1)}{\Ga(\la+\thalf)\,\Ga(\thalf)}\,
+\int_{-1}^1 \frac{C_n^\la(y)}{C_n^\la(1)}\,(1-y^2)^{\la-\half}\,
+e^{ixy}\,dy
+=i^n\,2^\la\,\Ga(\la+1)\,x^{-\la}\,J_{\la+n}(x).
+\label{8}
+\end{equation}
+See \cite[(18.17.17) and (18.17.18)]{DLMF}.
+%
+\paragraph{Laplace transforms}
+\begin{equation}
+\frac2{n!\,\Ga(\la)}\,
+\int_0^\iy H_n(tx)\,t^{n+2\la-1}\,e^{-t^2}\,dt=C_n^\la(x).
+\label{56}
+\end{equation}
+See Nielsen \cite[p.48, (4) with p.47, (1) and p.28, (10)]{K4} (1918)
+or Feldheim \cite[(28)]{K3} (1942).
+\begin{equation}
+\frac2{\Ga(\la+\thalf)}\,\int_0^1 \frac{C_n^\la(t)}{C_n^\la(1)}\,
+(1-t^2)^{\la-\half}\,t^{-1}\,(x/t)^{n+2\la+1}\,e^{-x^2/t^2}\,dt
+=2^{-n}\,H_n(x)\,e^{-x^2}\quad(\la>-\thalf).
+\label{46}
+\end{equation}
+Use Askey \& Fitch \cite[(3.29)]{K2} for $\al=\pm\thalf$ together with
+\eqref{48}, \eqref{51}, \eqref{52}, \eqref{54} and \eqref{55}.
+%
+\subsection*{9.10 Meixner}
+\paragraph{History}
+In 1934 Meixner \cite{406} (see
+(1.1) and case IV on pp.~10, 11 and 12) gave the orthogonality
+measure for the polynomials $P_n$ given by the generating function
+\[
+e^{x u(t)}\,f(t)=\sum_{n=0}^\iy P_n(x)\,\frac{t^n}{n!}\,,
+\]
+where
+\[
+e^{u(t)}=\left(\frac{1-\be t}{1-\al t}\right)^{\frac1{\al-\be}},\quad
+f(t)=\frac{(1-\be t)^{\frac{k_2}{\be(\al-\be)}}}{(1-\al t)^{\frac{k_2}{\al(\al-\be)}}}\quad
+(k_2<0;\;\al>\be>0\;\;{\rm or}\;\;\al<\be<0).
+\]
+Then $P_n$ can be expressed as a Meixner polynomial:
+\[
+P_n(x)=(-k_2(\al\be)^{-1})_n\,\be^n\,
+M_n\left(-\,\frac{x+k_2\al^{-1}}{\al-\be},-k_2(\al\be)^{-1},\be\al^{-1}\right).
+\]
+
+In 1938 Gottlieb \cite[\S2]{K1} introduces polynonials $l_n$ ``of Laguerre type''
+which turn out to be special Meixner polynomials:
+$l_n(x)=e^{-n\la} M_n(x;1,e^{-\la})$.
+%
+\paragraph{Uniqueness of orthogonality measure}
+The coefficient of $p_{n-1}(x)$ in (9.10.4) behaves as $O(n^2)$ as $n\to\iy$.
+Hence \eqref{93} holds, by which the orthogonality measure is unique.
+%
+\subsection*{9.11 Krawtchouk}
+%
+\paragraph{Special values}
+By (9.11.1) and the binomial formula:
+\begin{equation}
+K_n(0;p,N)=1,\qquad
+K_n(N;p,N)=(-1)^n p^{-n}(1-p)^n.
+\label{9}
+\end{equation}
+%
+\paragraph{Symmetry}
+By the orthogonality relations:
+\begin{equation}
+\frac{K_n(N-x;p,N)}{K_n(N;p,N)}=K_n(x;1-p,N),
+\label{10}
+\end{equation}
+in particular:
+\begin{equation}
+K_n(N-x;\thalf,N)=(-1)^n K_n(x;\thalf,N).
+\label{11}
+\end{equation}
+Hence
+\begin{equation}
+K_{2m+1}(N;\thalf,2N)=0.
+\label{12}
+\end{equation}
+From (9.11.11):
+\begin{equation}
+K_{2m}(N;\thalf,2N)=\frac{(\thalf)_m}{(-N+\thalf)_m}\,.
+\label{13}
+\end{equation}
+%
+\paragraph{Quadratic transformations}
+\begin{align}
+K_{2m}(x+N;\thalf,2N)&=\frac{(\thalf)_m}{(-N+\thalf)_m}\,
+R_m(x^2;-\thalf,-\thalf,N),
+\label{31}\\
+K_{2m+1}(x+N;\thalf,2N)&=-\,\frac{(\tfrac32)_m}{N\,(-N+\thalf)_m}\,
+x\,R_m(x^2-1;\thalf,\thalf,N-1),
+\label{33}\\
+K_{2m}(x+N+1;\thalf,2N+1)&=\frac{(\tfrac12)_m}{(-N-\thalf)_m}\,
+R_m(x(x+1);-\thalf,\thalf,N),
+\label{32}\\
+K_{2m+1}(x+N+1;\thalf,2N+1)&=\frac{(\tfrac32)_m}{(-N-\thalf)_{m+1}}\,
+(x+\thalf)\,R_m(x(x+1);\thalf,-\thalf,N),
+\label{34}
+\end{align}
+where $R_m$ is a dual Hahn polynomial (9.6.1). For the proofs use
+(9.6.2), (9.11.2), (9.6.4) and (9.11.4).
+%
+\subsection*{9.12 Laguerre}
+\paragraph{Notation}
+Here the Laguerre polynomial is denoted by $L_n^\al$ instead of
+$L_n^{(\al)}$.
+%
+\paragraph{Uniqueness of orthogonality measure}
+The coefficient of $p_{n-1}(x)$ in (9.12.4) behaves as $O(n^2)$ as $n\to\iy$.
+Hence \eqref{93} holds, by which the orthogonality measure is unique.
+%
+\paragraph{Special value}
+\begin{equation}
+L_n^{\al}(0)=\frac{(\al+1)_n}{n!}\,.
+\label{53}
+\end{equation}
+Use (9.12.1) or see \cite[(18.6.1)]{DLMF}.
+%
+\paragraph{Quadratic transformations}
+\begin{align}
+H_{2n}(x)&=(-1)^n\,2^{2n}\,n!\,L_n^{-1/2}(x^2),
+\label{54}\\
+H_{2n+1}(x)&=(-1)^n\,2^{2n+1}\,n!\,x\,L_n^{1/2}(x^2).
+\label{55}
+\end{align}
+See p.244, Remarks, last two formulas.
+Or see \cite[(18.7.19), (18.7.20)]{DLMF}.
+%
+\paragraph{Fourier transform}
+\begin{equation}
+\frac1{\Ga(\al+1)}\,\int_0^\iy \frac{L_n^\al(y)}{L_n^\al(0)}\,
+e^{-y}\,y^\al\,e^{ixy}\,dy=
+i^n\,\frac{y^n}{(iy+1)^{n+\al+1}}\,,
+\label{14}
+\end{equation}
+see \cite[(18.17.34)]{DLMF}.
+%
+\paragraph{Differentiation formulas}
+Each differentiation formula is given in two equivalent forms.
+\begin{equation}
+\frac d{dx}\left(x^\al L_n^\al(x)\right)=
+(n+\al)\,x^{\al-1} L_n^{\al-1}(x),\qquad
+\left(x\frac d{dx}+\al\right)L_n^\al(x)=
+(n+\al)\,L_n^{\al-1}(x).
+\label{76}
+\end{equation}
+%
+\begin{equation}
+\frac d{dx}\left(e^{-x} L_n^\al(x)\right)=
+-e^{-x} L_n^{\al+1}(x),\qquad
+\left(\frac d{dx}-1\right)L_n^\al(x)=
+-L_n^{\al+1}(x).
+\label{77}
+\end{equation}
+%
+Formulas \eqref{76} and \eqref{77} follow from \cite[(13.3.18), (13.3.20)]{DLMF}
+together with (9.12.1). 
+%
+\paragraph{Generalized Hermite polynomials}
+See \cite[p.156]{146}.
+These are defined by
+\begin{equation}
+H_{2m}^\mu(x):=\const L_m^{\mu-\half}(x^2),\qquad
+H_{2m+1}^\mu(x):=\const x\,L_m^{\mu+\half}(x^2).
+\label{78}
+\end{equation}
+Then for $\mu>-\thalf$ we have orthogonality relation
+\begin{equation}
+\int_{-\iy}^{\iy} H_m^\mu(x)\,H_n^\mu(x)\,|x|^{2\mu}e^{-x^2}\,dx
+=0\qquad(m\ne n).
+\label{79}
+\end{equation}
+Let the Dunkl operator $T_\mu$ be defined by \eqref{72}.
+If we choose the constants in \eqref{78} as
+\begin{equation}
+H_{2m}^\mu(x)=\frac{(-1)^m(2m)!}{(\mu+\thalf)_m}\,L_m^{\mu-\half}(x^2),\qquad
+H_{2m+1}^\mu(x)=\frac{(-1)^m(2m+1)!}{(\mu+\thalf)_{m+1}}\,
+ x\,L_m^{\mu+\half}(x^2)
+ \label{80}
+\end{equation}
+then (see \cite[(1.6)]{K5})
+\begin{equation}
+T_\mu H_n^\mu=2n\,H_{n-1}^\mu.
+\label{81}
+\end{equation}
+Formula \eqref{81} with \eqref{80} substituted gives rise to two
+differentiation formulas involving Laguerre polynomials which are equivalent to
+(9.12.6) and \eqref{76}.
+
+Composition of \eqref{81} with itself gives
+\[
+T_\mu^2 H_n^\mu=4n(n-1)\,H_{n-2}^\mu,
+\]
+which is equivalent to the composition of (9.12.6) and \eqref{76}:
+\begin{equation}
+\left(\frac{d^2}{dx^2}+\frac{2\al+1}x\,\frac d{dx}\right)L_n^\al(x^2)
+=-4(n+\al)\,L_{n-1}^\al(x^2).
+\label{82}
+\end{equation}
+%
+\subsection*{9.14 Charlier}
+%
+\paragraph{Uniqueness of orthogonality measure}
+The coefficient of $p_{n-1}(x)$ in (9.14.4) behaves as $O(n)$ as $n\to\iy$.
+Hence \eqref{93} holds, by which the orthogonality measure is unique.
+%
+\subsection*{9.15 Hermite}
+%
+\paragraph{Uniqueness of orthogonality measure}
+The coefficient of $p_{n-1}(x)$ in (9.15.4) behaves as $O(n)$ as $n\to\iy$.
+Hence \eqref{93} holds, by which the orthogonality measure is unique.
+%
+\paragraph{Fourier transforms}
+\begin{equation}
+\frac1{\sqrt{2\pi}}\,\int_{-\iy}^\iy H_n(y)\,e^{-\half y^2}\,e^{ixy}\,dy=
+i^n\,H_n(x)\,e^{-\half x^2},
+\label{15}
+\end{equation}
+see \cite[(6.1.15) and Exercise 6.11]{AAR}.
+\begin{equation}
+\frac1{\sqrt\pi}\,\int_{-\iy}^\iy H_n(y)\,e^{-y^2}\,e^{ixy}\,dy=
+i^n\,x^n\,e^{-\frac14 x^2},
+\label{16}
+\end{equation}
+see \cite[(18.17.35)]{DLMF}.
+\begin{equation}
+\frac{i^n}{2\sqrt\pi}\,\int_{-\iy}^\iy y^n\,e^{-\frac14 y^2}\,e^{-ixy}\,dy=
+H_n(x)\,e^{-x^2},
+\label{17}
+\end{equation}
+see \cite[(6.1.4)]{AAR}.
+%
+\subsection*{14.1 Askey-Wilson}
+%
+\paragraph{Symmetry}
+The Askey-Wilson polynomials $p_n(x;a,b,c,d\mid q)$ are symmetric
+in $a,b,c,d$.
+\sLP
+This follows from the orthogonality relation (14.1.2)
+together with the value of its coefficient of $x^n$ given in (14.1.5b).
+Alternatively, combine (14.1.1) with \cite[(III.15)]{GR}.
+%
+\paragraph{Special value}
+\begin{equation}
+p_n\big(\thalf(a+a^{-1});a,b,c,d\mid q\big)=a^{-n}\,(ab,ac,ad;q)_n\,,
+\label{40}
+\end{equation}
+and similarly for arguments $\thalf(b+b^{-1})$, $\thalf(c+c^{-1})$ and
+$\thalf(d+d^{-1})$ by symmetry of $p_n$ in $a,b,c,d$.
+%
+\paragraph{Trivial symmetry}
+\begin{equation}
+p_n(-x;a,b,c,d\mid q)=(-1)^n p_n(x;-a,-b,-c,-d\mid q).
+\label{41}
+\end{equation}
+Both \eqref{40} and \eqref{41} are obtained from (14.1.1).
+%
+\paragraph{Re: (14.1.5)}
+Let
+\begin{equation}
+p_n(x):=\frac{p_n(x;a,b,c,d\mid q)}{2^n(abcdq^{n-1};q)_n}=x^n+\wt k_n x^{n-1}
++\cdots\;.
+\label{18}
+\end{equation}
+Then
+\begin{equation}
+\wt k_n=-\frac{(1-q^n)(a+b+c+d-(abc+abd+acd+bcd)q^{n-1})}
+{2(1-q)(1-abcdq^{2n-2})}\,.
+\label{19}
+\end{equation}
+This follows because $\tilde k_n-\tilde k_{n+1}$ equals the coefficient
+$\thalf\bigl(a+a^{-1}-(A_n+C_n)\bigr)$ of $p_n(x)$ in (14.1.5).
+%
+\subsection*{14.2 $q$-Racah}
+\paragraph{Symmetry}
+\begin{equation}
+R_n(x;\al,\be,q^{-N-1},\de\mid q)
+=\frac{(\be q,\al\de^{-1}q;q)_n}{(\al q,\be\de q;q)_n}\,\de^n\,
+R_n(\de^{-1}x;\be,\al,q^{-N-1},\de^{-1}\mid q).
+\label{84}
+\end{equation}
+This follows from (14.2.1) combined with \cite[(III.15)]{GR}.
+\sLP
+In particular,
+\begin{equation}
+R_n(x;\al,\be,q^{-N-1},-1\mid q)
+=\frac{(\be q,-\al q;q)_n}{(\al q,-\be q;q)_n}\,(-1)^n\,
+R_n(-x;\be,\al,q^{-N-1},-1\mid q),
+\label{85}
+\end{equation}
+and
+\begin{equation}
+R_n(x;\al,\al,q^{-N-1},-1\mid q)
+=(-1)^n\,R_n(-x;\al,\al,q^{-N-1},-1\mid q),
+\label{86}
+\end{equation}
+
+\paragraph{Trivial symmetry}
+Clearly from (14.2.1):
+\begin{equation}
+R_n(y;\al,\be,\ga,\de\mid q)=R_n(y;\be\de,\al\de^{-1},\ga,\de\mid q).
+\label{83}
+\end{equation}
+%
+\subsection*{14.7 Dual $q$-Hahn}
+\paragraph{Orthogonality relation}
+More generally we have (14.7.2) with positive weights in any of the following
+cases:
+(i) $0<\ga q<1$, $0<\de q<1$;\quad
+(ii) $0<\ga q<1$, $\de<0$;\quad
+(iii) $\ga<0$, $\de>q^{-N}$;\quad
+(iv) $\ga>q^{-N}$, $\de>q^{-N}$;\quad
+(v) $0<q\ga<1$, $\de=0$.
+This also follows by inspection of the positivity of the coefficient of
+$p_{n-1}(x)$ in (14.7.4).
+Case (v) yields Affine $q$-Krawtchouk in view of (14.7.13).
+%
+\paragraph{Symmetry}
+\begin{equation}
+R_n(x;\ga,\de,N\mid q)
+=\frac{(\de^{-1}q^{-N};q)_n}{(\ga q;q)_n}\,\big(\ga\de q^{N+1}\big)^n\,
+R_n(\ga^{-1}\de^{-1}q^{-1-N} x;\de^{-1}q^{-N-1},\ga^{-1}q^{-N-1},N\mid q).
+\label{89}
+\end{equation}
+This follows from (14.7.1) combined with \cite[(III.11)]{GR}.
+%
+\subsection*{14.8 Al-Salam-Chihara}
+\subsubsection*{$q^{-1}$-Al-Salam-Chihara}
+%
+\paragraph{Re: (14.8.1)}
+For $x\in\Znonneg$:
+%
+\begin{align}
+Q_n(\thalf(aq^{-x}+a^{-1}q^x);&a,b\mid q^{-1})=
+(-1)^n b^n q^{-\half n(n-1)}\left((ab)^{-1};q\right)_n
+\nonumber\\
+&\qquad\qquad\qquad\qquad\qquad\quad
+\times\qhyp31{q^{-n},q^{-x},a^{-2}q^x}{(ab)^{-1}}{q,q^nab^{-1}}
+\label{20}\\
+&=(-ab^{-1})^x\,q^{-\half x(x+1)}\,\frac{(qba^{-1};q)_x}{(a^{-1}b^{-1};q)_x}\,
+\qhyp21{q^{-x},a^{-2}q^x}{qba^{-1}}{q,q^{n+1}}
+\label{42}\\
+&=(-ab^{-1})^x\,q^{-\half x(x+1)}\,\frac{(qba^{-1};q)_x}{(a^{-1}b^{-1};q)_x}\,
+p_x(q^n;ba^{-1},(qab)^{-1};q).
+\label{43}
+\end{align}
+%
+Formula \eqref{20} follows from the first identity in (14.8.1).
+Next \eqref{42} follows from \cite[(III.8)]{GR}.
+Finally \eqref{43} gives the little $q$-Jacobi polynomials (14.12.1).
+See also \cite[\S3]{79}.
+%
+\paragraph{Orthogonality}
+%
+\begin{multline}
+\sum_{x=0}^\iy
+\frac{(1-q^{2x}a^{-2}) (a^{-2},(ab)^{-1};q)_x}
+{(1-a^{-2}) (q,bqa^{-1};q)_x}\,
+(ba^{-1})^xq^{x^2}
+(Q_nQ_m)(\thalf(aq^{-x}+a^{-1}q^x);a,b;q)\\
+=\frac{(qa^{-2};q)_\iy}{(ba^{-1}q;q)_\iy}\,
+(q,(ab)^{-1};q)_n\,(ab)^nq^{-n^2}\,\de_{n,m}
+\quad(ab>1,\;qb<a).
+\label{21}
+\end{multline}
+%
+This follows from (29) together with (14.12.2) and the completeness of
+the orthogonal systerm of the little $q$-Jacobi polynomials,
+See also \cite[\S3]{79}. An alternative proof is given in
+\cite{64}. There combine (3.82) with (3.81), (3.67), (3.40).
+%
+\paragraph{Normalized recurrence relation}
+%
+\begin{equation}
+xp_n(x)=p_{n+1}(x)+\thalf(a+b)q^{-n} p_n(x)+
+\tfrac14(q^{-n}-1)(abq^{-n+1}-1)p_{n-1}(x),
+\label{22}
+\end{equation}
+%
+where
+\[
+Q_n(x;a,b\mid q^{-1})=2^n p_n(x).
+\]
+%
+\subsection*{14.10.1 Continuous $q$-ultraspherical / Rogers}
+\paragraph{Re: (14.10.17)}
+\begin{equation}
+C_n(\cos\tha;\be\mid q)=
+\frac{(\be^2;q)_n}{(q;q)_n}\,\be^{-\half n}\,
+\qhyp43{q^{-\half n},\be q^{\half n},\be^\half e^{i\tha},\be^\half e^{-i\tha}}
+{-\be,\be^\half q^{\frac14},-\be^\half q^{\frac14}}{q^\half,q^\half},
+\label{23}
+\end{equation}
+see \cite[(7.4.13), (7.4.14)]{GR}.
+%
+\paragraph{Re: (14.10.21)}
+(another $q$-difference equation).
+Let $C_n[e^{i\tha};\be\mid q]:=C_n(\cos\tha;\be\mid q)$.
+\begin{equation}
+\frac{1-\be z^2}{1-z^2}\,C_n[q^\half z;\be\mid q]+
+\frac{1-\be z^{-2}}{1-z^{-2}}\,C_n[q^{-\half}z;\be\mid q]=
+(q^{-\half n}+q^{\half n} \be)\,C_n[z;\be\mid q],
+\label{24}
+\end{equation}
+see \cite[(6.10)]{351}.
+%
+\paragraph{Re: (14.10.23)}
+This can also be written as
+\begin{equation}
+C_n[q^\half z;\be\mid q]-C_n[q^{-\half}z;\be\mid q]=
+q^{-\half n}(\be-1)(z-z^{-1})C_{n-1}[z;q\be\mid q].
+\label{25}
+\end{equation}
+Two other shift relations follow from the previous two equations:
+\begin{align}
+(\be+1)C_n[q^\half z;\be\mid q]&=(q^{-\half n}+q^{\half n}\be)C_n[z;\be\mid q]
++q^{-\half n}(\be-1)(z-\be z^{-1})C_{n-1}[z;q\be\mid q],
+\label{26}\\
+(\be+1)C_n[q^{-\half}z;\be\mid q]&=(q^{-\half n}+q^{\half n}\be)C_n[z;\be\mid q]
++q^{-\half n}(\be-1)(z^{-1}-\be z)C_{n-1}[z;q\be\mid q].
+\label{27}
+\end{align}
+%
+\subsection*{14.17 Dual $q$-Krawtchouk}
+%
+\paragraph{Symmetry}
+\begin{equation}
+K_n(x;c,N\mid q)=c^n\,K_n(c^{-1}x;c^{-1},N\mid q).
+\label{87}
+\end{equation}
+This follows from (14.17.1) combined with \cite[(III.11)]{GR}.
+\sLP
+In particular,
+\begin{equation}
+K_n(x;-1,N\mid q)=(-1)^n\,K_n(-x;-1,N\mid q).
+\label{88}
+\end{equation}
+%
+\subsection*{14.20 Little $q$-Laguerre / Wall}
+%
+\paragraph{Re: (14.20.11)}
+The \RHS\ of this generating function converges for $|xt|<1$.
+We can rewrite the \LHS\ by use of the transformation
+\begin{equation*}
+\qhyp21{0,0}c{q,z}=\frac1{(z;q)_\iy}\,\qhyp01-c{q,cz}.
+\end{equation*}
+Then we obtain:
+\begin{equation}
+(t;q)_\iy\,\qhyp21{0,0}{aq}{q,xt}
+=\sum_{n=0}^\iy\frac{(-1)^n\,q^{\half n(n-1)}}{(q;q)_n}\,
+p_n(x;a;q)\,t^n\qquad(|xt|<1).
+\label{35}
+\end{equation}
+%
+\subsubsection*{Expansion of $x^n$}
+Divide both sides of \eqref{35} by $(t;q)_\iy$. Then coefficients of the
+same power of $t$ on both sides must be equal. We obtain:
+\begin{equation}
+x^n=(a;q)_n\,\sum_{k=0}^n \frac{(q^{-n};q)_k}{(q;q)_k}\,q^{nk}\,p_k(x;a;q).
+\label{36}
+\end{equation}
+%
+\subsubsection*{Quadratic transformations}
+Little $q$-Laguerre polynomials $p_n(x;a;q)$ with $a=q^{\pm\half}$ are
+related to discrete $q$-Hermite I polynomials $h_n(x;q)$:
+\begin{align}
+p_n(x^2;q^{-1};q^2)&=
+\frac{(-1)^n q^{-n(n-1)}}{(q;q^2)_n}\,h_{2n}(x;q),
+\label{28}\\
+xp_n(x^2;q;q^2)&=
+\frac{(-1)^n q^{-n(n-1)}}{(q^3;q^2)_n}\,h_{2n+1}(x;q).
+\label{29}
+\end{align}
+%
+\subsection*{14.21 $q$-Laguerre}
+%
+\subsubsection*{Expansion of $x^n$}
+\begin{equation}
+x^n=q^{-\half n(n+2\al+1)}\,(q^{\al+1};q)_n\,
+\sum_{k=0}^n\frac{(q^{-n};q)_k}{q^{\al+1};q)_k}\,q^k\,L_k^\al(x;q).
+\label{37}
+\end{equation}
+This follows from \eqref{36} by the equality given in the Remark at the end
+of \S14.20. Alternatively, it can be derived in the same way as \eqref{36}
+from the generating function (14.21.14).
+%
+\subsubsection*{Quadratic transformations}
+$q$-Laguerre polynomials $L_n^\al(x;q)$ with $\al=\pm\half$ are
+related to discrete $q$-Hermite II polynomials $\wt h_n(x;q)$:
+\begin{align}
+L_n^{-1/2}(x^2;q^2)&=
+\frac{(-1)^n q^{2n^2-n}}{(q^2;q^2)_n}\,\wt h_{2n}(x;q),
+\label{38}\\
+xL_n^{1/2}(x^2;q^2)&=
+\frac{(-1)^n q^{2n^2+n}}{(q^2;q^2)_n}\,\wt h_{2n+1}(x;q).
+\label{39}
+\end{align}
+These follows from \eqref{28} and \eqref{29}, respectively, by applying
+the equalities given in the Remarks at the end of \S14.20 and \S14.28.
+%
+\renewcommand{\refname}{Standard references}
+\begin{thebibliography}{9999999}
+%
+\bibitem[AAR]{AAR}
+G. E. Andrews, R. Askey and R. Roy,
+{\em Special functions},
+Cambridge University Press, 1999.
+%
+\bibitem[DLMF]{DLMF}
+{\em NIST Handbook of Mathematical Functions},
+Cambridge University Press, 2010;\\
+{\em DLMF, Digital Library of Mathematical Functions},
+\url{http://dlmf.nist.gov}.
+%
+\bibitem[GR]{GR}
+G.~Gasper and M.~Rahman,
+{\em Basic hypergeometric series}, 2nd edn.,
+Cambridge University Press, 2004.
+%
+\bibitem[HTF1]{HTF1}
+A. Erd\'elyi,
+{\em Higher transcendental functions, Vol. 1},
+McGraw-Hill, 1953.
+%
+\end{thebibliography}
+%
+\renewcommand{\refname}{References from Koekoek, Lesky \& Swarttouw}
+\begin{thebibliography}{999}
+%
+\bibitem[46]{46}
+R. Askey,
+{\em Orthogonal polynomials and special functions},
+CBMS Regional Conference Series, Vol.~21, SIAM, 1975.
+%
+\bibitem[64]{64}
+R. Askey and M. E. H. Ismail,
+{\em Recurrence relations, continued fractions, and orthogonal polynomials},
+Mem. Amer. Math. Soc. 49 (1984), no. 300
+%
+\bibitem[79]{79}
+N. M. Atakishiyev and A. U. Klimyk,
+{\em On $q$-orthogonal polynomials, dual to little and big
+$q$-Jacobi polynomials},
+J. Math. Anal. Appl. 294 (2004), 246--257.
+%
+\bibitem[91]{91}
+W. N. Bailey,
+{\em The generating function of Jacobi polynomials},
+J. London Math. Soc. 13 (1938), 8--12.
+%
+\bibitem[146]{146}
+T. S. Chihara,
+{\em An introduction to orthogonal polynomials}, Gordon and Breach, 1978;
+reprinted Dover Publications, 2011.
+%
+\bibitem[234]{234}
+G. Gasper and M. Rahman,
+{\em Positivity of the Poisson kernel for the continuous
+$q$-ultraspherical polynomials},
+SIAM J. Math. Anal. 14 (1983), 409--420.
+%
+\bibitem[281]{281}
+M. E. H. Ismail, J. Letessier,  G. Valent and J. Wimp,
+{\em Two families of associated Wilson polynomials},
+Canad. J. Math. 42 (1990), 659--695.
+%
+\bibitem[322]{322}
+T. Koornwinder,
+{\em Jacobi polynomials III. Analytic proof of the addition formula},
+SIAM J. Math. Anal. 6 (1975) 533--543.
+%
+\bibitem[351]{351}
+T. H. Koornwinder,
+{\em The structure relation for Askey-Wilson polynomials},
+J.~Comput.\ Appl.\ Math.\ 207 (2007), 214--226; {\tt arXiv:math/0601303v3}.
+%
+\bibitem[485]{485}
+D. Stanton,
+{\em A short proof of a generating function for Jacobi polynomials},
+Proc. Amer. Math. Soc. 80 (1980), 398--400.
+%
+\bibitem[406]{406}
+J. Meixner,
+{\em Orthogonale Polynomsysteme mit einer besonderen Gestalt der erzeugenden Funktion},
+J. London Math. Soc. 9 (1934), 6--13.
+%
+\end{thebibliography}
+%
+%until K6
+\renewcommand{\refname}{Other references}
+\begin{thebibliography}{999}
+%
+\bibitem[K1]{K2}
+R. Askey and J. Fitch,
+{\em Integral representations for Jacobi polynomials and some applications},
+J. Math. Anal. Appl. 26 (1969), 411--437.
+%
+\bibitem[K2]{K5}
+Y. Ben Cheikh and M. Gaied,
+{\em Characterization of the Dunkl-classical symmetric orthogonal polynomials},
+Appl. Math. Comput. 187 (2007), 105--114.
+%
+\bibitem[K3]{K3}
+E. Feldheim,
+{\em Relations entre les polynomes de Jacobi, Laguerre et Hermite},
+Acta Math. 75 (1942), 117--138.
+%
+\bibitem[K4]{K1}
+M. J. Gottlieb,
+{\em Concerning some polynomials orthogonal on a finite or enumerable set of  points},
+Amer. J. Math. 60 (1938), 453--458.
+%
+\bibitem[K5]{K4}
+N. Nielsen,
+{\em Recherches sur les polyn\^omes d' Hermite},
+Kgl. Danske Vidensk. Selsk. Math.-Fys. Medd. I.6, K\o benhavn, 1918.
+%
+\bibitem[K6]{K6}
+J. A. Shohat and J. D. Tamarkin,
+{\em The problem of moments},
+American Mathematical Society, 1943.
+%
+\end{thebibliography}
+\end{document}
