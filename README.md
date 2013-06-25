@@ -1,4 +1,4 @@
 DRMF
 ====
 
-Documentation and extensions for the DRMF MediaWiki deployment
+Documentation and extensions for the DRMF MediaWiki deployment.
