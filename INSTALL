@@ -1,0 +1,52 @@
+# DRMF Installation Instructions
+# (for Ubuntu OS)
+
+### I. Prerequisites 
+
+ sudo apt-get install git php-5 php5-sqlite
+
+### II. MediaWiki
+
+ wget http://download.wikimedia.org/mediawiki/1.21/mediawiki-1.21.1.tar.gz
+ tar -xzvf mediawiki-1.21.1.tar.gz ; 
+ mv mediawiki-1.21.1 DRMF-wiki
+ # OR current dev release:
+ #  git clone --depth 1 https://gerrit.wikimedia.org/r/p/mediawiki/core.git
+ #  mv core DRMF-wiki
+
+ cd DRMF-wiki
+ php --server localhost:8000 --docroot .
+ firefox localhost:8000 &
+ # configure the Wiki
+ # copy the LocalSettings.php to DRMF-wiki/
+ # make sure your SQLite database is read/writeable
+
+### III. DRMF Extensions
+
+ cd extensions
+ git clone https://github.com/wikimedia/mediawiki-extensions-Math
+ mv mediawiki-extensions-Math Math
+
+ cd /tmp; git clone https://github.com/DRMF/DRMF
+ cd - ; cp /tmp/DRMF/mw_extensions/* . -r
+
+ # Configure the Wiki:
+ # -- edit LocalSettings.php to include:
+require_once("$IP/extensions/Math/Math.php");
+$wgUseLaTeXML = true; // enabeling MathJax as rendering option
+$wgDefaultUserOptions['math'] = MW_MATH_LATEXML; // setting LaTeXML as default rendering option (optional)
+$wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+
+#Template extension 
+require_once("$IP/extensions/MultiBoilerplate/multiboilerplate.php");
+$wgMultiBoilerplateOptions = true;
+#$wgMultiBoilerplateOptions["Template:DRMF"]="Template:DRMF";
+
+#JOBAD extension
+require_once("$IP/extensions/JOBAD-git/JOBAD-git.php");
+
+#Show detailed debugging information
+$wgShowExceptionDetails = true;
+
+### IV. Update Wiki
+php maintenance/update.php
