@@ -1,5 +1,5 @@
   var JOBAD_IN_PAGE;
-  var selector = jQuery("#bodyContent");
+  var selector = jQuery("#mw-content-text");
   JOBAD_IN_PAGE = new JOBAD(selector);
   JOBAD_IN_PAGE.modules.load([
   ['test.click', ['green']],
