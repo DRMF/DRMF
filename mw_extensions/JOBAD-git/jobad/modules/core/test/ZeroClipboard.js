@@ -20,7 +20,6 @@
         if (typeof params == "object" && !params.length) {
 
             var settings = $.extend({
-
                 path: 'ZeroClipboard.swf',
                 copy: null,
                 beforeCopy: null,
@@ -28,7 +27,6 @@
                 clickAfter: true,
                 setHandCursor: true,
                 setCSSEffects: true
-
             }, params);
 
 
