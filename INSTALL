@@ -27,9 +27,13 @@
  git clone https://github.com/wikimedia/mediawiki-extensions-Math
  mv mediawiki-extensions-Math Math
 
- cd /tmp; git clone https://github.com/DRMF/DRMF
- cd - ; cp /tmp/DRMF/mw_extensions/* . -r
+ git clone https://github.com/DRMF/mediawiki-extensions-MathMenu
+ mv mediawiki-extensions-MathMenu MathMenu
 
+ git clone https://github.com/DRMF/mediawiki-extensions-DRMF-Templats
+ mv mediawiki-extensions-DRMF-Templates MultiBoilerplate
+
+ 
  # Configure the Wiki:
  # -- edit LocalSettings.php to include:
 require_once("$IP/extensions/Math/Math.php");
