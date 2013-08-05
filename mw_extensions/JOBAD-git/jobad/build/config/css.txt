@@ -1,2 +1,0 @@
-JOBAD.css
-JOBAD.theme.css
