@@ -42,8 +42,8 @@ require_once("$IP/extensions/MultiBoilerplate/multiboilerplate.php");
 $wgMultiBoilerplateOptions = true;
 #$wgMultiBoilerplateOptions["Template:DRMF"]="Template:DRMF";
 
-#JOBAD extension
-require_once("$IP/extensions/JOBAD-git/JOBAD-git.php");
+#MathMenu extension
+require_once("$IP/extensions/MathMenu/MathMenu.php");
 
 #Show detailed debugging information
 $wgShowExceptionDetails = true;
