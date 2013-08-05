@@ -43,8 +43,9 @@ $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 
 #Template extension 
 require_once("$IP/extensions/MultiBoilerplate/multiboilerplate.php");
-$wgMultiBoilerplateOptions = true;
-#$wgMultiBoilerplateOptions["Template:DRMF"]="Template:DRMF";
+$wgMultiBoilerplateOverwrite = true;
+$wgMultiBoilerplateDiplaySpecialPage = true;
+$wgMultiBoilerplateOptions[ "DRMF" ] = "Template:DRMF";
 
 #MathMenu extension
 require_once("$IP/extensions/MathMenu/MathMenu.php");
@@ -54,3 +55,14 @@ $wgShowExceptionDetails = true;
 
 ### IV. Update Wiki
 php maintenance/update.php
+
+### V. Create the DRMF Template
+-- Navigate to the equivalent URL to:
+ http://localhost:8000/index.php/Template:DRMF 
+
+-- and create the template (TODO: fill in a real template here):
+== Formula <title/> ==
+
+== Proof ==
+
+== Properties ==
