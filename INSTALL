@@ -3,7 +3,7 @@
 
 ### I. Prerequisites 
 
- sudo apt-get install git php-5 php5-sqlite
+ sudo apt-get install git php5 php5-sqlite
 
 ### II. MediaWiki
 
@@ -30,7 +30,7 @@
  git clone https://github.com/DRMF/mediawiki-extensions-MathMenu
  mv mediawiki-extensions-MathMenu MathMenu
 
- git clone https://github.com/DRMF/mediawiki-extensions-DRMF-Templats
+ git clone https://github.com/DRMF/mediawiki-extensions-DRMF-Templates
  mv mediawiki-extensions-DRMF-Templates MultiBoilerplate
 
  
