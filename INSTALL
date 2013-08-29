@@ -66,3 +66,11 @@ php maintenance/update.php
 == Proof ==
 
 == Properties ==
+
+
+### VI. MathSearch Indexing
+ - in extensions/MathSearch
+  php ReRenderMath.php
+  php CreateMathIndex.php /var/www/DRMF/data/mws-harvests/ --mwsns=mws:
+ 
+ - make sure LocalSettings.php and mws_config point to the same directory
