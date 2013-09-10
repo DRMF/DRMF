@@ -1,14 +1,10 @@
 \documentclass{article}
-\usepackage[backend=bibtex]{biblatex}
-\bibliography{drmf.bib}
-
 \catcode`\~=13
-\def~{\subsection*{\% }}
+\def~{\paragraph\indent\%}
 
 \begin{document}
 
 %%% One example of an entry
-\begin{refsection}
 \section{First example}
 
 ~ $a$
@@ -17,29 +13,20 @@
 
 ~ urls
 
-~ bibliography
-
-\cite[(13.7.1)]{NIST:DLMF}
-
-\printbibliography
-\end{refsection}
+~ bibliography: \cite[(13.7.1)]{NIST:DLMF}
 
 %%% Second example of an entry
-\begin{refsection}
 \section{Second example}
 
-~ $a$
+~ $b$
 
 ~ proof
 
 ~ urls
 
-~ bibliography
+~ bibliography \cite[(13.5.3)]{NIST:DLMF}
 
-\cite{NIST:DLMF}
-
-\printbibliography
-\end{refsection}
-
+\bibliographystyle{alpha}
+\bibliography{drmf.bib}
 \end{document}
 
