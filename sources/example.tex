@@ -1,32 +1,55 @@
 \documentclass{article}
+\usepackage{DLMFdefun}
+\usepackage{DRMFfcns}
 \catcode`\~=13
-\def~{\paragraph\indent\%}
+%\def~{\paragraph\indent\%}
 
 \begin{document}
 
 %%% One example of an entry
-\section{First example}
 
-~ $a$
+\section{Formula 1}
 
-~ proof
+\noindent {\bf Formula}\\[0.05cm]
+\[
+\frac{2^{\alpha+\beta}}{R (1+R-z)^{\alpha} (1+R+z)^{\beta}}
+  = \sum_{n=0}^\infty \JacobiP{\alpha}{\beta}{n}@{x} z^n
+\]
 
-~ urls
+\noindent {\bf Constraints}\\[0.05cm]
+\noindent $a-1$
 
-~ bibliography: \cite[(13.7.1)]{NIST:DLMF}
+\noindent {\bf Proof}\\[0.05cm]
+\noindent Proof
+
+\noindent {\bf URLs}\\[0.05cm]
+\noindent urls
+
+\noindent {\bf Bibliography}\\
+bibliography: \cite[(13.7.1)]{Olver:2010:NHMF}
 
 %%% Second example of an entry
-\section{Second example}
 
-~ $b$
+\section{Formula 2}
 
-~ proof
+\noindent {\bf Formula}\\[0.05cm]
+\noindent $b$
 
-~ urls
+\noindent {\bf Constraints}\\[0.05cm]
+\noindent $b-1$
 
-~ bibliography \cite[(13.5.3)]{NIST:DLMF}
+\noindent {\bf Proof}\\[0.05cm]
+\noindent Proof
 
-\bibliographystyle{alpha}
+\noindent {\bf URLs}\\[0.05cm]
+\noindent urls
+
+\noindent {\bf Bibliography}\\[0.05cm]
+bibliography \cite[(13.5.3)]{Olver:2010:NHMF}
+
+%\bibliographystyle{alpha}
+\bibliographystyle{plain}
 \bibliography{drmf.bib}
+
 \end{document}
 
