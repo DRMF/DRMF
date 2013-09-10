@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{drmf.bib}
+
+\catcode`\~=13
+\def~{\subsection*{\% }}
+
+\begin{document}
+
+%%% One example of an entry
+\begin{refsection}
+\section{First example}
+
+~ $a$
+
+~ proof
+
+~ urls
+
+~ bibliography
+
+\cite[(13.7.1)]{NIST:DLMF}
+
+\printbibliography
+\end{refsection}
+
+%%% Second example of an entry
+\begin{refsection}
+\section{Second example}
+
+~ $a$
+
+~ proof
+
+~ urls
+
+~ bibliography
+
+\cite{NIST:DLMF}
+
+\printbibliography
+\end{refsection}
+
+\end{document}
+

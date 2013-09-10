@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Function Defining Macro for DLMF project
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Macro Definer
+% \defSpecFun{function}[nparams][optparms]{format}[keys]{arity}[argfmt][altargfmt]..
+% Defines a macro \function which takes nparams arguments, 
+%   optparms is the default for the first, if optional.
+%   The function gets formated according to format
+%   ie.   \newcommand{\function}[nparams][optparms]{format}
+%   It's arity is arity (a number or n)
+%    (recorded under \function@arity)
+
+% Save an @ sign, catcoded as Other.
+{\makeatother \global\let\specialfunctionatsign=@}
+
+% \defSpecFun{name}[#params][defaultparam]{format of function}{#args}[format of args][alt. format of args]...
+\def\defSpecFun#1{%
+  \@ifundefined{#1}{}{%
+    \message{^^J! Warning: redefining \@backslashchar#1}%
+    \expandafter\let\csname#1\endcsname\relax}%
+  \@ifnextchar[{\@defSF@parms{#1}}{\@defSF@{#1}{}}%]
+}
+% Handle parameterized functions possibly with optional first parameter
+\def\@defSF@parms#1[#2]{\@ifnextchar[{\@defSF@opt{#1}{[#2]}}{\@defSF@{#1}{[#2]}}} %]
+\def\@defSF@opt#1#2[#3]{\@defSF@{#1}{#2[#3]}}%
+
+% Internal definer:
+%   \@defSF@{name}{macro arg pattern for parameters}{function expansion}[keys]{#args}[arg fmts]...
+\def\@defSF@#1#2#3{%
+  \expandafter\DeclareRobustCommand\csname #1\endcsname#2{\@SF@begin{#1}{#3}}%
+ \@ifnextchar[{\@defSF@keys{#1}}{\@defSF@arg{#1}}% 
+}%
+% \@defSF@keys{name}[keys]{arity}[argfmts]...
+% If keywords, skip them
+\def\@defSF@keys#1[#2]{%
+  \@defSF@arg{#1}%
+}%
+% Process argument stuff
+% \@defSF@arg{name}{arity}[argfmts]...
+\def\@defSF@arg#1#2{%
+ \@ifnextchar[{\@defSF@argfmts{#1@}{#2}}{%
+    \@namedef{#1@}{\csname @SF@default#2arg\endcsname}}%]
+}%
+% Process argument formatters.
+% \@defSF@argfmts{name}{arity}[argfmts]...
+\def\@defSF@argfmts#1#2[#3]{%
+  \expandafter\DeclareRobustCommand\csname #1\endcsname[#2]{#3\egroup}%
+  \@ifnextchar[{\@defSF@argfmts{#1@}{#2}}{}%]
+}%
+
+% NOTE: breqn (or my hacked version) has some flaw with \left...\right, at least in LHS,
+% that keeps it from being able to measure the LHS.  Thus, we wrap the arglist in \bgroup..\egroup
+% Default argument formatters for 1..9 arguments.
+\@namedef{@SF@default1arg}#1{\!\left(#1\right)\egroup}
+\@namedef{@SF@default2arg}#1#2{\!\left(#1,#2\right)\egroup}
+\@namedef{@SF@default3arg}#1#2#3{\!\left(#1,#2,#3\right)\egroup}
+\@namedef{@SF@default4arg}#1#2#3#4{\!\left(#1,#2,#3,#4\right)\egroup}
+\@namedef{@SF@default5arg}#1#2#3#4#5{\!\left(#1,#2,#3,#4,#5\right)\egroup}
+\@namedef{@SF@default6arg}#1#2#3#4#5#6{\!\left(#1,#2,#3,#4,#5,#6\right)\egroup}
+\@namedef{@SF@default7arg}#1#2#3#4#5#6#7{\!\left(#1,#2,#3,#4,#5,#6,#7\right)\egroup}
+\@namedef{@SF@default8arg}#1#2#3#4#5#6#7#8{\!\left(#1,#2,#3,#4,#5,#6,#7,#8\right)\egroup}
+\@namedef{@SF@default9arg}#1#2#3#4#5#6#7#8#9{\!\left(#1,#2,#3,#4,#5,#6,#7,#8,#9\right)\egroup}
+
+% Check for special function followed by an @ to indicate args.
+% BUT the @ can be catcode OTHER, normally, or LETTER in toctitles via *.aux!!
+% and we want to use \ifx (used by \@ifnextchar, so no expansion!
+\def\@SF@ifnextat#1#2{%
+  \@ifnextchar\specialfunctionatsign{#1}{\@ifnextchar @{#1}{#2}}}%
+
+% These are executed after formatting the function name;
+% Each takes as 1st & 2nd arg: {function name} {expansion so-far}
+% Check for prime(s), superscript and then @.
+\def\@SF@begin#1#2{%
+  \@SF@checkprime{#1}{#2}}%
+%%%  \@SF@checktilde{#1}{#2}}%
+%%%\def\@SF@checktilde#1#2{%
+%%%  \@ifnextchar~{%
+%%%    \@SF@dotilde{#1}{#2}}{%
+%%%    \@SF@checkprime{#1}{#2}}}%
+%%%\def\@SF@dotilde#1#2~{%
+%%%  \@ifnextchar'{%
+%%%    \@SF@doprime{#1}{\widetilde#2}{}}{%
+%%%    \@SF@checksup{#1}{\widetilde#2}}}%
+\def\@SF@checkprime#1#2{%
+  \@ifnextchar'{%
+    \@SF@doprime{#1}{#2}{}}{%
+    \@SF@checksup{#1}{#2}}}%
+\def\@SF@doprime#1#2#3'{%
+  \@ifnextchar'{%
+    \@SF@doprime{#1}{#2}{#3\prime}}{%
+    \@SF@checksup{#1}{{#2^{#3\prime}}}}}%
+\def\@SF@checksup#1#2{%
+  \@ifnextchar^{%
+    \@SF@dosup{#1}{#2}}{%
+    \@SF@check@{#1}{#2}}}%
+\def\@SF@dosup#1#2^#3{%
+  \@ifnextchar'{%
+    \@SF@doprime{#1}{\left(#2^{#3}\right)}{}}{%
+    \@SF@check@{#1}{#2^{#3}}}}%
+\def\@SF@check@#1#2{%
+%  \@ifnextchar\specialfunctionatsign{%
+  \@SF@ifnextat{%
+    \@SF@check@aux{#1}{#2}{@}}{%
+    \mathop{#2\/}\nolimits}}% Wrap with \mathop (inner defn may be hidden from TeX)
+% also put in the italic correction (!?!); w/o it, sometimes the fcn drops down!
+\def\@SF@check@aux#1#2#3#4{%
+%  \@ifnextchar\specialfunctionatsign{%
+  \@SF@ifnextat{%
+  \@SF@check@aux{#1}{#2}{#3@}}{%
+  \@SF@invokeargs{#1}{#2}{#3}}}%
+\def\@SF@invokeargs#1#2#3{%
+   \expandafter\let\expandafter\tempa\csname #1#3\endcsname
+   \ifx\tempa\relax\typeout{Special function argument pattern \@backslashchar#1#3 is not defined!}%
+     \expandafter\let\expandafter\tempa\csname #1@\endcsname\fi
+   % Wrap the operator with \mathop; if used in the main defn of function will likely be hidden from TeX
+   \mathop{#2\/}\bgroup\tempa}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\specFunObsolete#1#2{%
+  \expandafter\def\csname #1\endcsname{%
+  \typeout{^^J*********************************
+^^J#1 is obsolete! Use #2}%
+  \csname#2\endcsname}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
