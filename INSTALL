@@ -67,8 +67,18 @@ php maintenance/update.php
 
 == Properties ==
 
+### VI. Math size
 
-### VI. MathSearch Indexing
+In Firefox, the math is usually too small compared to the regular text. To mend that, consider adding a rule at:
+ http://localhost:8000/index.php/MediaWiki:Common.css
+ 
+to increase the size, for example:
+
+math {
+font-size: 115%;
+}
+
+### VII. MathSearch Indexing
  - in extensions/MathSearch
   php ReRenderMath.php
   php CreateMathIndex.php /var/www/DRMF/data/mws-harvests/ --mwsns=mws:
