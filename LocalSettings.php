@@ -136,6 +136,7 @@ $wgResourceLoaderMaxQueryLength = -1;
 $wgUseLaTeXML = true;
 $wgDefaultUserOptions['math'] = MW_MATH_LATEXML; // setting LaTeXML as default rendering option (optional)
 $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
+$wgDefaultLaTeXMLSetting = 'mode=math&preload=texvc.sty&preload=DLMFmath.sty&linelength=80';
 
 require_once ("$IP/extensions/CentralAuth/CentralAuth.php");
 $wgCentralAuthDatabase = '/local/tmp/data/my_wiki.sqlite';
