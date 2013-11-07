@@ -131,7 +131,7 @@ $wgGroupPermissions['*']['edit'] = false;
 # Anonymous users can't create pages
 $wgGroupPermissions['*']['createpage'] = false;
 # Disable reading by anonymous users
-$wgGroupPermissions['*']['read'] = true;
+$wgGroupPermissions['*']['read'] = false;
 # But allow them to read e.g., these pages:
 $wgWhitelistRead =  array ( "Main Page", "Special:Userlogin", "Help:Contents", "-");
 
