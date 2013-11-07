@@ -1,0 +1,47 @@
+<VirtualHost *:80>
+	ServerAdmin admin@kwarc.info
+	ServerName drmf.mathweb.org
+	
+	DocumentRoot /var/www/DRMF
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	<Directory /var/www/DRMF>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+
+	<DirectoryMatch .*\.git/.*>
+    		Deny From All
+	</DirectoryMatch>
+        
+	ErrorLog /var/log/apache2/drmf.error.log
+	LogLevel warn
+
+	CustomLog /var/log/apache2/drmf.access.log combined
+	ServerSignature On
+	
+	Alias /icons/ "/usr/share/apache2/icons/"
+	<Directory "/usr/share/apache2/icons">
+	    Options Indexes MultiViews
+	    AllowOverride None
+	    Order allow,deny
+	    Allow from all
+	</Directory>
+
+	RewriteEngine On
+	RewriteRule ^/?wiki(/.*)?$ %{DOCUMENT_ROOT}/index.php [L]
+
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-d
+	RewriteRule ^/?images/thumb/[0-9a-f]/[0-9a-f][0-9a-f]/([^/]+)/([0-9]+)px-.*$ %{DOCUMENT_ROOT}/thumb.php?f=$1&width=$2 [L,QSA,B]
+
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-d
+	RewriteRule ^/?images/thumb/archive/[0-9a-f]/[0-9a-f][0-9a-f]/([^/]+)/([0-9]+)px-.*$ %{DOCUMENT_ROOT}/thumb.php?f=$1&width=$2&archived=1 [L,QSA,B]
+
+</VirtualHost>
