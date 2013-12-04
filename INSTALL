@@ -24,17 +24,10 @@
 ### III. DRMF Extensions
 
  cd extensions
- git clone https://github.com/wikimedia/mediawiki-extensions-Math
- mv mediawiki-extensions-Math Math
-
- git clone https://github.com/DRMF/mediawiki-extensions-MathMenu
- mv mediawiki-extensions-MathMenu MathMenu
-
- git clone https://github.com/DRMF/mediawiki-extensions-DRMF-Templates
- mv mediawiki-extensions-DRMF-Templates MultiBoilerplate
-
- 
- # Configure the Wiki:
+ git clone https://github.com/wikimedia/mediawiki-extensions-Math Math
+ git clone https://github.com/DRMF/mediawiki-extensions-MathMenu MathMenu
+ git clone https://github.com/DRMF/mediawiki-extensions-DRMF-Templates MultiBoilerplate
+### IV. Configure the Wiki:
  # -- edit LocalSettings.php to include:
 require_once("$IP/extensions/Math/Math.php");
 $wgUseLaTeXML = true; // enabeling MathJax as rendering option
@@ -53,10 +46,10 @@ require_once("$IP/extensions/MathMenu/MathMenu.php");
 #Show detailed debugging information
 $wgShowExceptionDetails = true;
 
-### IV. Update Wiki
+### V. Update Wiki
 php maintenance/update.php
 
-### V. Create the DRMF Template
+### VI. Create the DRMF Template
 -- Navigate to the equivalent URL to:
  http://localhost:8000/index.php/Template:DRMF 
 
