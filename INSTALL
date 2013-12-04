@@ -31,7 +31,8 @@
  # -- edit LocalSettings.php to include:
 require_once("$IP/extensions/Math/Math.php");
 $wgUseLaTeXML = true; // enabeling MathJax as rendering option
-$wgDefaultUserOptions['math'] = MW_MATH_LATEXML; // setting LaTeXML as default rendering option (optional)
+$wgDefaultUserOptions['math'] = MW_MATH_LATEXML; // setting LaTeXML as default rendering option
+$wgDefaultLaTeXMLSetting = "mode=math&preload=DLMFmath.sty";
 $wgLaTeXMLUrl = 'http://latexml.mathweb.org/convert';
 
 #Template extension 
