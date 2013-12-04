@@ -3,7 +3,7 @@
 
 ### I. Prerequisites 
 
- sudo apt-get install git php5 php5-sqlite
+ sudo apt-get install git php5 php5-sqlite php5-json
 
 ### II. MediaWiki
 
