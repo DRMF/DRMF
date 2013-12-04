@@ -24,7 +24,7 @@
 ### III. DRMF Extensions
 
  cd extensions
- git clone https://github.com/wikimedia/mediawiki-extensions-Math Math
+ git clone https://github.com/DRMF/mediawiki-extensions-Math Math
  git clone https://github.com/DRMF/mediawiki-extensions-MathMenu MathMenu
  git clone https://github.com/DRMF/mediawiki-extensions-DRMF-Templates MultiBoilerplate
 ### IV. Configure the Wiki:
