@@ -24,9 +24,9 @@
 ### III. DRMF Extensions
 
  cd extensions
- git clone https://github.com/DRMF/mediawiki-extensions-Math Math
- git clone https://github.com/DRMF/mediawiki-extensions-MathMenu MathMenu
- git clone https://github.com/DRMF/mediawiki-extensions-DRMF-Templates MultiBoilerplate
+ git clone --recursive https://github.com/DRMF/mediawiki-extensions-Math Math
+ git clone --recursive https://github.com/DRMF/mediawiki-extensions-MathMenu MathMenu
+ git clone --recursive https://github.com/DRMF/mediawiki-extensions-DRMF-Templates MultiBoilerplate
 ### IV. Configure the Wiki:
  # -- edit LocalSettings.php to include:
 require_once("$IP/extensions/Math/Math.php");
