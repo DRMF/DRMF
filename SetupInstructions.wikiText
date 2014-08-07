@@ -1,0 +1,8 @@
+== WMF Test and development cluster ==
+
+== XSDE Environment ==
+
+== Local Setup ==
+
+=== without root access ===
+
