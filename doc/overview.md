@@ -14,7 +14,7 @@ Brief description: Claude will write software which will replace and
 insert semantic LaTeX macros for various mathematical operators 
 encountered in the DLMF and DRMF for orthogonal polynomial and special 
 function formulae. Claude's software will rely on parsing tools for 
-LaTeX source trees. test.
+LaTeX source trees. 
 
 ### (Rhamy) PHP Translation of Input LaTeX Mathematical Source to Output Formula Representations 
 
