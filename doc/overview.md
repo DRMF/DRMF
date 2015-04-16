@@ -18,7 +18,19 @@ Competition.
 * CirrusSearch MediaWiki extension (which calls backend elastic) is the frontend used by MediaWiki for text search calls 
 * DLMF search extension is a plugin to backend Lucene 
 * Elastic (the MediaWiki text search backend) is the defacto successor of Lucene text search backend
- 
+
+### (Rhamy Belayachi) DRMF Standard MediaWiki Text Search Integration
+
+Brief description: Rhamy will extend the CirrusSearch MediaWiki extension to allow
+for other extensions such as math search to create customized queries. 
+
+* Complete code review of m to M and M to m PHP code
+* Get Wikitech account
+* Read the documentation for the Gerrit system
+* Do a commit and review code
+* read the documentation for the CirrusSearch extension
+* Create a hook in the CirrusSearch extension which allows one to modify the search query syntax.
+
 ### (Akash Shah) DRMF Formula Search MediaWiki Frontend
 
 Brief description: Akash will improve the frontend for DRMF formula search to make
@@ -81,17 +93,4 @@ Claude will start by focusing on the KLS and KLSadd datasets.
 * Perform macro replacements using semantic macro for continued fractions 
 * Perform macro replacements using semantic macro for limits
 * Perform macro replacements using semantic macro for derivatives
-
-### (Rhamy Belayachi) DRMF Computer Algebra Systems Output
-
-Brief description:  Rhamy will develop code which performs translations of input 
-DRMF semantic LaTeX source for mathematical formulae into various computer algebra 
-systems (CAS) code such as those used by the Mathematica and Maple.  Corresponding 
-graphical interfaces for the translation software will be developed.
-
-* complete code review of m to M and M to m PHP code
-* get Wikitech account
-* familarize with Gerrit system
-* familiarized with Ankita's work which is located at Gerrit system
-* continue where Ankita left off
 
