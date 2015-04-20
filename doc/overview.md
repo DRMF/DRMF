@@ -1,11 +1,11 @@
 ## Summer 2015 DRMF Student projects
 
 * **Jimmy Li** — DRMF Formula Search Backend & NTCIR-12 Competition
+* **Rhamy Belayachi** — DRMF Standard MediaWiki Text Search Integration 
 * **Akash Shah** — DRMF Formula Search MediaWiki Frontend 
 * **Divya Gandla** — DRMF eCF Seeding Project
 * **Shraeya Madhu** — DRMF DLMF Seeding Project
 * **Claude Zou** — DRMF Semantic LaTeX Mathematical Operators 
-* **Rhamy Belayachi** — DRMF Computer Algebra Systems Output
 
 ### (Jimmy Li) DRMF Formulae Search Backend & NTCIR-12 Competition
 
