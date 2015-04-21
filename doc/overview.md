@@ -89,6 +89,10 @@ LaTeX source trees.  Claude will focus on replacements of sum, product,
 continued fraction, derivative, limit and other mathematical operator expressions.
 Claude will start by focusing on the KLS and KLSadd datasets.
 
+* watch and listen to lexical analysis video tutorial — https://class.coursera.org/compilers/lecture
+ 1. Introduction
+ 2. The Cool Programming Language
+ 3. Lexical Analysis up to 03-05: Lexical Specifications
 * complete VI tutorial
 * learn UNIX commands 
 * learn about privacy issues
