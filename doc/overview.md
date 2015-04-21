@@ -1,23 +1,11 @@
 ## Summer 2015 DRMF Student projects
 
-* **Jimmy Li** — DRMF Formula Search Backend & NTCIR-12 Competition
 * **Rhamy Belayachi** — DRMF Standard MediaWiki Text Search Integration
+* **Jimmy Li** — DRMF Formula Search Backend & NTCIR-12 Competition
 * **Akash Shah** — DRMF Formula Search MediaWiki Frontend 
 * **Divya Gandla** — DRMF eCF Seeding Project
 * **Shraeya Madhu** — DRMF DLMF Seeding Project
 * **Claude Zou** — DRMF Semantic LaTeX Mathematical Operators 
-
-### (Jimmy Li) DRMF Formulae Search Backend & NTCIR-12 Competition
-
-Brief description: Based on the NTCIR-11 and NTCIR-10 contributions, Jimmy will 
-optimize the formula search backend and provide easy accessible REST interface for 
-DRMF formula search.  Jimmy will also prepare for a submission to the NTCIR-12
-Competition.
-(See https://github.com/TU-Berlin/mathosphere/milestones)
-
-* CirrusSearch MediaWiki extension (which calls backend elastic) is the frontend used by MediaWiki for text search calls 
-* DLMF search extension is a plugin to backend Lucene 
-* Elastic (the MediaWiki text search backend) is the defacto successor of Lucene text search backend
 
 ### (Rhamy Belayachi) DRMF Standard MediaWiki Text Search Integration
 
@@ -33,6 +21,18 @@ for other extensions such as math search to create customized queries.
 * Do a commit and review code
 * read the documentation for the CirrusSearch extension
 * Create a hook in the CirrusSearch extension which allows one to modify the search query syntax.
+
+### (Jimmy Li) DRMF Formulae Search Backend & NTCIR-12 Competition
+
+Brief description: Based on the NTCIR-11 and NTCIR-10 contributions, Jimmy will 
+optimize the formula search backend and provide easy accessible REST interface for 
+DRMF formula search.  Jimmy will also prepare for a submission to the NTCIR-12
+Competition.
+(See https://github.com/TU-Berlin/mathosphere/milestones)
+
+* CirrusSearch MediaWiki extension (which calls backend elastic) is the frontend used by MediaWiki for text search calls 
+* DLMF search extension is a plugin to backend Lucene 
+* Elastic (the MediaWiki text search backend) is the defacto successor of Lucene text search backend
 
 ### (Akash Shah) DRMF Formula Search MediaWiki Frontend
 

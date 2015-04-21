@@ -16,3 +16,6 @@ Committing:
 -"git remote -v"
 -"git push origin HEAD:refs/for/master" to push for review
 -"scp -p -P 29418 sharmaans@gerrit.wikimedia.org:hooks/commit-msg .git/hooks/" to commit
+-'git commit -a -m "reformatting"' to commit an update of files
+-"git pull" to pull most recent version of folders
+-"git push" to push most recent version of folders
