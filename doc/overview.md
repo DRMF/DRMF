@@ -27,7 +27,7 @@ for other extensions such as math search to create customized queries.
 * Complete code review of m to M and M to m PHP code
 * Get Wikitech account
 * Read the documentation for the Gerrit system
-* Update math extension to implement line breaking
+* Update math extension to implement line breaking (see http://www.mediawiki.org/wiki/Extension:Math/Displaystyle)
 * Do a commit and review code
 * read the documentation for the CirrusSearch extension
 * Create a hook in the CirrusSearch extension which allows one to modify the search query syntax.
