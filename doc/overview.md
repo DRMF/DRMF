@@ -103,4 +103,5 @@ Claude will start by focusing on the KLS and KLSadd datasets.
 * Perform macro replacements using semantic macro for continued fractions 
 * Perform macro replacements using semantic macro for limits
 * Perform macro replacements using semantic macro for derivatives
+* Perform macro replacements using semantic macro for integrals
 
