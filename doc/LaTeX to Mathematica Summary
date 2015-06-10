@@ -1,0 +1,152 @@
+3/16/2015
+Recorded: 215
+Translated: 100
+Untranslated: 100
+
+Trignometric & Trig Integrals: \acosh@{x} --> ArcCosh[x]
+
+Logarithm: --> Log[x]
+
+Airy: \AiryAi@{z} --> AiryAi[z]
+
+Airy Modulus: \AiryModulusM@{z} --> Sqrt[AiryAi[x]^2+AiryBi[x]^2]
+
+Arithmetic Geometric Mean: \AGM@{a}{g} --> ArithmeticGeometricMean[a,b]
+
+Anger: \AngerJ{\nu}@{z} --> AngerJ[\nu,z]
+
+Appell: \AppellFi@{\alpha}{\beta}{\beta'}{\gamma}{x}{y} --> AppellF1[\alpha,\beta,\beta',\gamma,x,y]
+
+Barnes G: \BarnesGamma@{z} --> BarnesG[z]
+
+BesselJ: \BesselJ{n}@{z} --> BesselJ[n,z]
+
+Binomial Coefficient: \binomial{m}{n} --> Binomial[n,m]
+
+Catalan Number: \CatalanNumber@{n} --> CatalanNumber[n]
+
+Ceiling: \ceiling{x} --> Ceiling[x]
+
+Chebyshev: \ChebyT{x}@{n} --> ChebyshevT[n,x]
+
+Complex Conjugate: \conj{z} --> Conjugate[z]
+
+Cylinder: \Cylinder{\nu}@{z} --> ParabolicCylinderD[\nu,z]
+
+Dawson's Integral: \DawsonsInt@{z} --> DawsonF[z]
+
+Dedekind's Eta: \DedekindModularEta@{\tau} --> DedekindEta[\tau]
+
+Derivative: \deriv{f}{x} --> D[f,x]
+
+Determinant: \det{x} --> Det[x]
+
+Divergence: \divergence{x} --> divergence[x]
+
+Elliptic Integral: \CompEllIntC@{a} --> EllipticC[x, Sqrt[m]]
+
+Error: \erf@{z} --> Erf[z]
+
+Euler Beta: \EulerBeta@{a}{b} --> Beta[a,b]
+
+Euler Gamma: \EulerGamma@{a} --> Gamma[a]
+
+Exponential: \exp@{x} --> Exp[x]
+
+Exponential Integral: \ExpInti@{x} --> ExpIntegralEi[z]
+
+Floor: \floor{x} --> Floor[x]
+
+Fraction: \frac{a}{b} --> a/b
+
+Fresnel: \FresnelSin@{z} --> FresnelS[z]
+
+Greek Letter: \Alpha --> \[CapitalAlpha]
+
+Gamma: \GammaP@{a}{z} -->  Gamma[a,z]
+
+Gudermannian: \Gudermannian@{x} --> Gudermannian[z]
+
+Hermite: \HermiteH{n}@{x} --> HermiteH[n,x]
+
+HurwitzZeta: \HurwitzZeta@{s}{a} --> HurwitzZeta[s,a]
+
+Hypergeometric: \HypergeoF@{a}{b}{c}{d} --> Hypergeometric2F1[a,b,c,d]
+
+Hypergeometric (Generalized) \HyperpFq{p}{q}@{a}{b}{c} --> HypergeometricPFQ[a,b,c]
+
+Imaginary Unit: \iunit --> I
+
+Incomplete Beta: \IncBeta{x}@{a}{b} --> Beta[z,a,b]
+
+Incomplete Gamma: \IncGamma{x}@{a} --> Gamma[a,z]
+
+Inverse Error (including complementary): \inverfc@{x} --> InverseErfc[x]
+
+Jacobi Elliptics: \Jacobisd@{z}{k} --> JacobiSD[u,m]
+
+Jacobi Polynomials: \JacobiP{\alpha}{\beta}{n}@{x} --> JacobiP[n,a,b,x]
+
+Kelvin: \Kelvinber{\nu}@{x} --> KelvinBer[n,z]
+
+Klein Invariant: \ModularJ@{\tau} --> KleinInvariantJ[\tau]
+
+Kronecker: \Kronecker{j}{k} --> Kronecker[j,k]
+
+Laguerre: \LaguerreL[\a]{n}@{x} --> LaguerreL[n,a,x]
+
+LegendreP/Q: \LegendreP[\mu]{\nu}@{x} --> LegendreP[n,m,x] 
+
+FerrersP/Q: \FerrersP[\mu]{\nu}@{x} --> LegendreP[n,m,x]
+
+LegendrePoly: \LegendrePoly{\nu}@{x} --> LegendreP[\nu,x]
+
+LerchPhi: \LerchPhi@{z}{s}{a} --> LerchPhi[z,s,a]
+
+Log Integral: \LogInt@{x} --> LogIntegral[x]
+
+Mittag-Leffler: \MittagLeffler{a}{b}@{z} --> MittagLefflerE[\alpha,\beta,z]
+
+Modulus: m \mod n --> Mod[m,n]
+
+Permutations: \Permutations{n} --> Permutations[n]
+
+Pochhammer: \pochammer{a}{n} --> Pochhammer[a,n]
+
+PolyGamma: \polygamma{n}@{z} --> PolyGamma[n,z]
+
+PolyLog: \Polylogarithms{x}@{z} --> PolyLog[x,z]
+
+Q Factorial: \qFactorial{a}{q}{n} --> QFactorial[a,q,n]
+
+Q Gamma: \qGamma{q}@{z} --> QGamma[z,q]
+
+Ramanujan Tau: \RamanujanTau@{k} --> RamanujanTau[k]
+
+Real Part: \realpart{z} --> Re[z]
+
+Riemann: \RiemannXi@{s} --> RiemannXi[s]
+
+Scorer: \ScorerHi@{z} --> ScorerHi[z]
+
+Sign: \sin@{x} --> Sign[z]
+
+Sin Integral: \SinInt@{x} --> SinInt[z]
+
+Spherical BesselJ/Y: \SphBesselJ{n}@{z} --> SphericalBesselJ[n,z]
+
+Spherical HankelH1/H2: \SphHankelHii{n}@{z} --> SphericalHankelH2[n,z]
+
+Spherical Harmonic: \SphericalHarmonicY{l}{m}@{\theta}{\phi} --> SphericalHarmonicY[l,m,\theta,\phi]
+
+Spheroidal Eigenvalue: \SpheroidalEigenvalueLambda{m}{n}@{\gamma} --> SpheroidalEigenvalue[n,m,\gamma]
+
+Spheroidal Ps: \SpheroidalPs{m}{n}@{z}{\gamma^2} --> SpheroidalPs[n,m,\gamma,z]
+
+Sqrt: \sqrt{z} --> Sqrt[z]
+
+StruveH: \StruveH{\nu}@{z} --> StruveH[n,z]
+
+WeberE: \WeberE{\nu}@{z} --> WeberE[\nu,z]
+
+Whittaker: \WhittakerM{\kappa}{\mu}@{z} --> WhittakerW[k,m,z]
