@@ -1,0 +1,60 @@
+## ------------------------ Mathematica Package Template Generator -----------------------------
+## Generates template for DRMF Mathematica Package of LaTeX DRMF macros from Macros.csv
+## Creates two files -- one with usages of functions (MathemPackage.txt), and the other with template for
+## function definitions (MathemPackageF.txt)
+
+import csv
+# file output setup (usage)
+f = open('MathemPackage.txt','w');
+f.truncate();
+f.write('BeginPackage["DRMF Macros`"]\n\n');
+# file output setup (function def)
+ff = open('MathemPackageF.txt','w');
+ff.truncate();
+ff.write('Begin["Private`"]\n\n');
+
+with open('Macros.csv','rb') as csvfile:
+	sreader = csv.reader(csvfile, delimiter=',');
+	next(sreader);
+	for row in sreader:
+		rowcur = row;
+		## -------------------- Build around following CSV format: ---------------------------
+		## ROW 0 	ROW 1		ROW 2		ROW 3		ROW 4		ROW 5		ROW 6		ROW 7
+		##  --		 --		  --		 --	 	"M"?		\sin@2  			returns sin
+		## Row 4 indicates whether the macro has already been translated into Mathematica
+		## if it has (indicated by an "M", do not process it
+		## Row 5 contains the function definition
+		## Row 7 contains the purpose of the cell
+		## Row split into: (x,x,x,x,M?,function,x,purpose,x...)
+		## This format may be modified for various purposes, but remember to modify the 
+		## indices used throughout the program
+		
+		try:
+			if (next(sreader)!=""):
+				rownext = next(sreader);
+		except StopIteration:
+			ff.write("\nEnd[]\nEndPackage[]");
+			f.close();
+			ff.close();
+			break;
+		# if row not already translated to Mathematica 
+		if str(rowcur[4]).upper() != "M": 
+			# find version of function with all arguments
+			if str.split(rowcur[5],"@")[0].lower() != str.split(rownext[5],"@")[0].lower() and len(rowcur[5]) != 0:
+				name = rowcur[5][1:str.find(rowcur[5],'{')];
+				args = "";
+				args_ = "";
+				# for each argument in the function definition
+				for arg in (str.split(rowcur[5][str.find(rowcur[5],'{'):],"}")):
+					arg = arg.strip('@{');
+					args = args+", "+arg;
+					args_ = args_+"_, "+arg;
+				args="["+args[2:-2]+"]";
+				args_="["+args_[3:-2]+"]";
+				str.replace(args,"{","[");
+				str.replace(args,"}","]");
+				usage = name+'::usage = '+'"'+name+args+' returns _FILL IN_";'; # + rowcur[7]+
+				definition = name+args_+" := ";
+				# write function and usage into file
+				f.write(usage+'\n');
+				ff.write(definition+'\n');
