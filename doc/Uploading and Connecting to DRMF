@@ -5,7 +5,6 @@
 	--An SSH key allows you to connect and communicate with a trusted server (e.g. drmf-ecf) without repeatedly re-entering passwords or other sensitive data.--
 -Create an SSH key: "$ ssh-keygen -t rsa -C 'your_email@youremail.com'"
 -Modify the config file in the .ssh/ folder (this configures the SSH key to connect to drmf-ecf via localhosts):
-
 "Host bastion1.eqiad.wmflabs
     Hostname bastion.wmflabs.org
     ProxyCommand none
@@ -55,7 +54,7 @@ Host ecf
 
 -cd into folder of commitment (~/MathSearch)
 -"git rebase -i HEAD~1"
--replace "pick" in commit message with "squash"
+-Replace "pick" in commit message with "squash"
 -"git push origin HEAD:refs/for/master" to push for review on gerrit
 
 4/20/2015
@@ -72,5 +71,6 @@ Host ecf
 6/8/2015
 ----------------------In case PHPStorm is dysfunctional:-----------------------
 -cd into directory of PhpStorm project
--scp to create upload file to instance ("scp filename sharmaans@drmf-ecf.eqiad.wmflabs:~")
--log onto instance to verify uplaod ("drmf-ecf" or "ssh INSTANCENAME")
+-scp to create upload file to instance ("scp filename USERNAME@drmf-ecf.eqiad.wmflabs:~")
+-Log onto instance to verify uplaod ("drmf-ecf" or "ssh INSTANCENAME")
+-Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file)
