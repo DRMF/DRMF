@@ -57,6 +57,18 @@ Host ecf
 -Replace "pick" in commit message with "squash"
 -"git push origin HEAD:refs/for/master" to push for review on gerrit
 
+6/12/2015
+-------------------------------Commiting to GitHub:----------------------------
+	-- GitHub allows files and contributions to be collected and stored in a Cloud collective project database.
+	
+-Log onto your GitHub account
+-Request to be added to the DRMF directory
+-Navigate to the branch to which you want to contribute
+-Click the (+) next to the directory address to add a new pull request
+-Copy/paste the file and add appropriate name and description
+-Choose the option to "commit directly to the master branch"
+-Commit changes
+
 4/20/2015
 ----------------------------Configuring PHPStorm:--------------------------
 	--PHPStorm is an integrated development environment for PHP, HTML, and other forms of web development. It makes life much easier. Use it to store, edit, review, and upload files.--
