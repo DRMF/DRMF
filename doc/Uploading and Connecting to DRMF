@@ -1,10 +1,13 @@
 -------Terminal commands are in double quotes ("")------
 
-4/20/2015
+6/17/2015
 ----------------------Connecting to an instance:--------------------
 	--An SSH key allows you to connect and communicate with a trusted server (e.g. drmf-ecf) without repeatedly re-entering passwords or other sensitive data.--
+
 -Create an SSH key: "$ ssh-keygen -t rsa -C 'your_email@youremail.com'"
--Modify the config file in the .ssh/ folder (this configures the SSH key to connect to drmf-ecf via localhosts):
+-It will then prompt you for the save location, which you want to keep as default, so just hit enter
+-It will then ask for a passowrd. Enter a password if you want one, otherwise just hit enter
+-Add the code below the config file in the .ssh/ folder (this configures the SSH key to connect to drmf-ecf via localhosts):
 "Host bastion1.eqiad.wmflabs
     Hostname bastion.wmflabs.org
     ProxyCommand none
@@ -30,9 +33,9 @@ Host ecf
     LocalForward 2222 localhost:22
     LocalForward 8080 localhost:80"
 
--"ssh INSTANCENAME" to connect to the instance each time afterwards (current instance name is 'ecf')
+-From now on all you have to do to connect to the instance is "ssh INSTANCENAME" (current instance name is 'ecf')
 
-4/13/2015
+6/17/2015
 ----------------------------Committing to Gerrit:--------------------------
 	--Gerrit is a cooperative platform which allows other users to review your code. You have locally stored commits - files you want to be reviewed - which can be pushed for review on Gerrit.--
 
@@ -44,7 +47,7 @@ Host ecf
 -Add project description/title to file
 -"git commit --amend --author='name <email>'" to change author info
 -"git remote -v"
--"git push origin HEAD:refs/for/master" to push for review on gerrit
+-"git review" to push for review on gerrit
 -"scp -p -P 29418 sharmaans@gerrit.wikimedia.org:hooks/commit-msg .git/hooks/" to commit
 -------------------------Check changes/commitment:-----------------------
 -Log onto WikiMedia
@@ -55,7 +58,19 @@ Host ecf
 -cd into folder of commitment (~/MathSearch)
 -"git rebase -i HEAD~1"
 -Replace "pick" in commit message with "squash"
--"git push origin HEAD:refs/for/master" to push for review on gerrit
+-"git review" to push for review on gerrit
+
+6/12/2015
+-------------------------------Commiting to GitHub:----------------------------
+	--GitHub allows files and contributions to be collected and stored in a Cloud collective project database.--
+	
+-Log onto your GitHub account
+-Request to be added to the DRMF directory
+-Navigate to the branch to which you want to contribute
+-Click the (+) next to the directory address to add a new pull request
+-Copy/paste the file and add appropriate name and description
+-Choose the option to "commit directly to the master branch"
+-Commit changes
 
 6/12/2015
 -------------------------------Commiting to GitHub:----------------------------
@@ -73,7 +88,7 @@ Host ecf
 ----------------------------Configuring PHPStorm:--------------------------
 	--PHPStorm is an integrated development environment for PHP, HTML, and other forms of web development. It makes life much easier. Use it to store, edit, review, and upload files.--
 
--Download PHPStorm and enter licence key
+-Download PHPStorm and enter license key
 -Tools-->Deployment-->Configuration
 -Enter local host and port number (localhost, 2222 respectively for this config file)
 -Enter GERRITUSERNAME
