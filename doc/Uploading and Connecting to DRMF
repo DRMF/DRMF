@@ -26,8 +26,8 @@ Host *.eqiad.wmflabs
 Host *.wmflabs
     User GERRITUSERNAME
 
-Host ecf
-    HostName drmf-ecf.eqiad.wmflabs
+Host INSTANCENAME
+    HostName INSTANCENAME.eqiad.wmflabs
     ProxyCommand ssh -a -W %h:%p bastion2.eqiad.wmflabs
     User GERRITUSERNAME
     LocalForward 2222 localhost:22
@@ -47,11 +47,14 @@ Host ecf
 -Add project description/title to file
 -"git commit --amend --author='name <email>'" to change author info
 -"git remote -v"
--"git review" to push for review on gerrit
+-"git review" to push for review on gerrit OR (if "git review" doesn't work) "git push [remote name] HEAD:refs/for/master" 
 -"scp -p -P 29418 sharmaans@gerrit.wikimedia.org:hooks/commit-msg .git/hooks/" to commit
--------------------------Check changes/commitment:-----------------------
+
+-------------------------Check changes/commitment:------------------------
+
 -Log onto WikiMedia
 -Check Changes under personal settings
+
 -------------------------Squashing commits:-------------------------------
 	--Multiple commits can be squashed into a single upload on a branch with multiple patches.--
 
@@ -84,12 +87,19 @@ Host ecf
 -Choose the option to "commit directly to the master branch"
 -Commit changes
 
-4/20/2015
-----------------------------Configuring PHPStorm:--------------------------
+4/20/2015 Edits: 6/18/2015
+------------------------Installing & Configuring PHPStorm:-----------------------
 	--PHPStorm is an integrated development environment for PHP, HTML, and other forms of web development. It makes life much easier. Use it to store, edit, review, and upload files.--
 
--Download PHPStorm and enter license key
--Tools-->Deployment-->Configuration
+-Download the PHPStorm file (https://www.jetbrains.com/phpstorm/download/)
+-In terminal, navigate to the directory which contains the downloaded file using the cd command (usually your downloads folder)
+-Use "tar xfz PhpStorm-*.tar.gz" to unplack it
+-Use "cd PhpStorm-*", and then "cd bin" to get to directory with the install file (PhpStorm.sh)
+-Use "./phpstorm.sh" to start the install
+-Go through the installation process, and enter you license key when prompted for it (free license keys are given for MediaWiki development)
+-Settings-->Build, Execution, Deployment-->Deployment
+-Click [+] and create a new Server with the name localhost and type SFTP
+-
 -Enter local host and port number (localhost, 2222 respectively for this config file)
 -Enter GERRITUSERNAME
 -Link to id_rsa file (should be in .ssh folder at Home) under Private key file
