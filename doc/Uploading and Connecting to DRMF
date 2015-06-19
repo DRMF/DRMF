@@ -95,10 +95,10 @@ Host INSTANCENAME
 -In terminal, navigate to the directory which contains the downloaded file using the cd command (usually your downloads folder)
 -Use "tar xfz PhpStorm-*.tar.gz" to unplack it
 -Use "cd PhpStorm-*", and then "cd bin" to get to directory with the install file (PhpStorm.sh)
--Use "./phpstorm.sh" to start the install
+-Use "./phpstorm.sh" to start the install (make sure a JDK is nstalled in order to complete this task)
 -Go through the installation process, and enter you license key when prompted for it (free license keys are given for MediaWiki development)
 -Settings-->Build, Execution, Deployment-->Deployment
--Click [+] and create a new Server with the name localhost and type SFTP
+-Click [+] and create a new Server with the name localhost and type SFTP 
 -
 -Enter local host and port number (localhost, 2222 respectively for this config file)
 -Enter GERRITUSERNAME
