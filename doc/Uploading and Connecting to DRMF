@@ -47,8 +47,8 @@ Host INSTANCENAME
 -Add project description/title to file
 -"git commit --amend --author='name <email>'" to change author info
 -"git remote -v"
+-"scp -p -P 29418 <GERRITUSERNAME>@gerrit.wikimedia.org:hooks/commit-msg .git/hooks/" to install the hook on your local machine
 -"git review" to push for review on gerrit OR (if "git review" doesn't work) "git push [remote name] HEAD:refs/for/master" 
--"scp -p -P 29418 sharmaans@gerrit.wikimedia.org:hooks/commit-msg .git/hooks/" to commit
 
 -------------------------Check changes/commitment:------------------------
 
@@ -93,14 +93,14 @@ Host INSTANCENAME
 
 -Download the PHPStorm file (https://www.jetbrains.com/phpstorm/download/)
 -In terminal, navigate to the directory which contains the downloaded file using the cd command (usually your downloads folder)
--Use "tar xfz PhpStorm-*.tar.gz" to unplack it
--Use "cd PhpStorm-*", and then "cd bin" to get to directory with the install file (PhpStorm.sh)
+-Use "tar xfz PhpStorm-*.tar.gz" to unpack it
+-Use "cd PhpStorm-*", and then "cd bin" to get to directory with the install file which is named PhpStorm.sh
 -Use "./phpstorm.sh" to start the install (make sure a JDK is nstalled in order to complete this task)
 -Go through the installation process, and enter you license key when prompted for it (free license keys are given for MediaWiki development)
 -Settings-->Build, Execution, Deployment-->Deployment
 -Click [+] and create a new Server with the name localhost and type SFTP 
 -
--Enter local host and port number (localhost, 2222 respectively for this config file)
+-Enter localhost and port number (localhost, 2222 respectively for this config file)
 -Enter GERRITUSERNAME
 -Link to id_rsa file (should be in .ssh folder at Home) under Private key file
 -Should be finished now
