@@ -110,4 +110,4 @@ Host INSTANCENAME
 -cd into directory of PhpStorm project
 -scp to create upload file to instance ("scp filename USERNAME@drmf-ecf.eqiad.wmflabs:~")
 -Log onto instance to verify uplaod ("drmf-ecf" or "ssh INSTANCENAME")
--Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file)
+-Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file: Link: http://www.svrnm.de/blog/fixed-netbeans-phpstorm-algorithm-negotiation-fail/)
