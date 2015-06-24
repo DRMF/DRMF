@@ -4,9 +4,15 @@
 ----------------------Connecting to an instance:--------------------
 	--An SSH key allows you to connect and communicate with a trusted server (e.g. drmf-ecf) without repeatedly re-entering passwords or other sensitive data.--
 
--Create an SSH key: "$ ssh-keygen -t rsa -C 'your_email@youremail.com'"
+-Create an SSH key: "ssh-keygen -t rsa -C 'your_email@youremail.com'" (-C means comment; put useful info here)
 -It will then prompt you for the save location, which you want to keep as default, so just hit enter
 -It will then ask for a passowrd. Enter a password if you want one, otherwise just hit enter
+-Make an account on wikimedia, and add your PUBLIC ssh key (NOT PRIVATE) on to wikimedia (https://wikitech.wikimedia.org/wiki/Special:Preferences#mw-prefsection-openstack)
+-Sign in on gerrit using the same credentials as you used in wikimedia, and upload your PUBLIC ssh key there also (https://gerrit.wikimedia.org/r/#/)
+-Now you must gain acess to the wikimedia bastion. You can do this in two ways: requesting access directly through wikimedia (https://wikitech.wikimedia.org/wiki/Special:FormEdit/Shell_Access_Request) or asking over at the wikimedia labs IRC (http://webchat.freenode.net/?channels=#wikimedia-labs)
+-Once you gain access you should get a notification over on wikimedia saying something along the lines of your user rights have changed, this means you now have access to the bastion
+-Next ask whoever owns the instance you are looking to join for access to the instance. (In this case it would be Moritz (https://github.com/physikerwelt) or Dr.Cohl (https://github.com/HowardCohl))
+-Once you gain access you should get a notification over on wikimedia saying something along the lines of you have been added to a new group, this means you now have access to the instance
 -Add the code below the config file in the .ssh/ folder (this configures the SSH key to connect to drmf-ecf via localhosts):
 "Host bastion1.eqiad.wmflabs
     Hostname bastion.wmflabs.org
@@ -87,8 +93,20 @@ Host INSTANCENAME
 -Choose the option to "commit directly to the master branch"
 -Commit changes
 
+-------------------------------Cloning Wikimedia:----------------------------
+	 --First you need to make sure you have a copy of the mediawiki vagrant, mediawiki, and the mediawiki extension you are currently working on, on your local system.--
+
+-Run "git clone https://gerrit.wikimedia.org/r/mediawiki/vagrant" in the folder you want to make the copy
+-Run "cd vagrant" to get into the vagrant directory
+-Run "git clone https://gerrit.wikimedia.org/r/mediawiki/core" to get a copy of mediawiki itself (this may take a while, be patient, and let it finish)
+-Run "mv core mediawiki" to change the name of the the core folder to mediawiki. This is to stay in sync with the instances files
+-Run "cd mediawiki"
+-Run "cd extensions"
+-Run "git clone git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/EXTENSIONNAME" to get a copy of the extension you will be working on
+
+
 4/20/2015 Edits: 6/18/2015
-------------------------Installing & Configuring PHPStorm:-----------------------
+------------------------Installing PHPStorm:-----------------------
 	--PHPStorm is an integrated development environment for PHP, HTML, and other forms of web development. It makes life much easier. Use it to store, edit, review, and upload files.--
 
 -Download the PHPStorm file (https://www.jetbrains.com/phpstorm/download/)
@@ -97,13 +115,28 @@ Host INSTANCENAME
 -Use "cd PhpStorm-*", and then "cd bin" to get to directory with the install file which is named PhpStorm.sh
 -Use "./phpstorm.sh" to start the install (make sure a JDK is nstalled in order to complete this task)
 -Go through the installation process, and enter you license key when prompted for it (free license keys are given for MediaWiki development)
--Settings-->Build, Execution, Deployment-->Deployment
--Click [+] and create a new Server with the name localhost and type SFTP 
--
--Enter localhost and port number (localhost, 2222 respectively for this config file)
--Enter GERRITUSERNAME
--Link to id_rsa file (should be in .ssh folder at Home) under Private key file
--Should be finished now
+
+
+------------------------Configuring PHPStorm:-----------------------
+	--Configuring PHPStorm will allow to modify and upload files directly to the instance with minimal use of the termial. It also gives a gui for git commands. You can use it to store, edit, review, and upload files.--
+
+-Extremly useful link which contains screenshots of each individual step (https://www.mediawiki.org/wiki/PhpStorm)
+-Make sure you have modified the config file as shown above before starting with PHPStorm
+-Also make sure you have a clone of mediawiki on your local machine (follow Cloning Mediawiki as shown above)
+-Go to Settings-->Build, Execution, Deployment-->Deployment
+-Click [+] and create a new Server with a meaningful name and type SFTP 
+-SFTP host:         localhost (or 127.0.0.1, they are equivalent. whatever floats your boat)
+-Port:              2222
+-Root Path:         /
+-User name:         SHELLNAME
+-Auth type:         Key pair
+-PRIVATE Key file:  link is by default in /home/USERNAME/.ssh/id_rsa
+-Passphrase:        your ssh key password you created when generating you ssh key
+-Press test SFTP connection to make sure it succsesfully connects to localhost, if it doesn't, refer to "In case PHPStorm is dysfunctional" which is shown below
+-Go to the mappings tab
+-Local path:                                  navigate to where your local copy vagrant is on your computer
+-Deployment path on server 'meaningful name': navigate to where your instance has a copy of the vagrant
+
 
 6/8/2015
 ----------------------In case PHPStorm is dysfunctional:-----------------------
@@ -111,3 +144,4 @@ Host INSTANCENAME
 -scp to create upload file to instance ("scp filename USERNAME@drmf-ecf.eqiad.wmflabs:~")
 -Log onto instance to verify uplaod ("drmf-ecf" or "ssh INSTANCENAME")
 -Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file: Link: http://www.svrnm.de/blog/fixed-netbeans-phpstorm-algorithm-negotiation-fail/)
+-If it says that your git version is outdated, simply just update git (http://stackoverflow.com/questions/4039416/installing-git-with-non-root-user-account)
