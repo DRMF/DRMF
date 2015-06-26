@@ -143,5 +143,19 @@ Host INSTANCENAME
 -cd into directory of PhpStorm project
 -scp to create upload file to instance ("scp filename USERNAME@drmf-ecf.eqiad.wmflabs:~")
 -Log onto instance to verify uplaod ("drmf-ecf" or "ssh INSTANCENAME")
--Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file: Link: http://www.svrnm.de/blog/fixed-netbeans-phpstorm-algorithm-negotiation-fail/)
+
+-If when trying to test SFTP server, it says 'Algorithm negotiation fail' you need to replace the jsch-0.1.50.jar file in the PHPStorm installation
+ Download jsch.jar from http://www.svrnm.de/files/jsch.jar
+ Navigate to your PHPStrom installation, and go into the lob directory
+ Look for the jsch-*.jar and rename the downloaded file to match the name of that file
+ Delete the old version of jsch-*.jar and put in the new downloaded file
+ Check if the 'Algorithm negotiation fail' problem persists. If it does google your woes
+ 
 -If it says that your git version is outdated, simply just update git (http://stackoverflow.com/questions/4039416/installing-git-with-non-root-user-account)
+ Clone the source code by running "git clone https://github.com/git/git"
+ Then run "make configure && ./configure --prefix=/home/user/myroot && make && make install" to completely install git ("&&" links together commands)
+ In PHPStorm, go to Settings --> Version Control --> Git, and link to the execuatble git file located in the place you have installed git
+
+-Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file: Link: http://www.svrnm.de/blog/fixed-netbeans-phpstorm-algorithm-negotiation-fail/)
+
+ 
