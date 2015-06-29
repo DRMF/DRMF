@@ -96,7 +96,7 @@ Host INSTANCENAME
 ## Installing PHPStorm
 	PHPStorm is an integrated development environment for PHP, HTML, and other forms of web development. It makes life much easier. Use it to store, edit, review, and upload files.
 
-1. Download the PHPStorm file (https://www.jetbrains.com/phpstorm/download/)
+1. Download the [PHPStorm file](https://www.jetbrains.com/phpstorm/download/)
 2. In terminal, navigate to the directory which contains the downloaded file using the cd command (usually your downloads folder)
 3. Use `tar -xvf PhpStorm-*.tar.gz` to unpack it
 4. Use `cd PhpStorm-*`, and then "cd bin" to get to directory with the install file which is named PhpStorm.sh
@@ -151,7 +151,7 @@ Host INSTANCENAME
 
 ## In case PHPStorm is dysfunctional
 - If when trying to test SFTP server, it says 'Algorithm negotiation fail' you need to replace the jsch-0.1.50.jar file in the PHPStorm installation
- - Download jsch.jar from http://www.svrnm.de/files/jsch.jar
+ - Download [jsch.jar](http://www.svrnm.de/files/jsch.jar)
  - Navigate to your PHPStorm installation, and go into the lib directory
  - Look for the jsch-*.jar and rename the downloaded file to match the name of that file
  - Delete the old version of jsch-*.jar and put in the new downloaded file
@@ -162,6 +162,6 @@ Host INSTANCENAME
  - Then run `make configure && ./configure --prefix=/home/user/myroot && make && make install` to completely install git (`&&` links together commands)
  - In PHPStorm, go to Settings-->Version Control-->Git, and link to the execuatble git file located in the place you have installed git
 
-- Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file: Link: http://www.svrnm.de/blog/fixed-netbeans-phpstorm-algorithm-negotiation-fail/)
+- Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file: [Link](http://www.svrnm.de/blog/fixed-netbeans-phpstorm-algorithm-negotiation-fail/))
 
  
