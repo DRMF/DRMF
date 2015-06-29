@@ -91,7 +91,7 @@ Host INSTANCENAME
 4. Run `mv core mediawiki` to change the name of the the core folder to mediawiki. This is to stay in sync with the instances files
 5. Run `cd mediawiki`
 6. Run `cd extensions`
-7. Run `git clone git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/EXTENSIONNAME` to get a copy of the extension you will be working on
+7. Run `git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/EXTENSIONNAME` to get a copy of the extension you will be working on
 
 ## Installing PHPStorm
 	PHPStorm is an integrated development environment for PHP, HTML, and other forms of web development. It makes life much easier. Use it to store, edit, review, and upload files.
