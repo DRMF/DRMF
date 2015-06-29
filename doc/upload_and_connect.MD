@@ -119,7 +119,7 @@ Host INSTANCENAME
  - Auth type:         Key pair
  - PRIVATE Key file:  link is by default in /home/USERNAME/.ssh/id_rsa
  - Passphrase:        your ssh key password you created when generating your ssh key
-7. Press test SFTP connection to make sure it successfully connects to localhost, if it doesn't, refer to "In case PHPStorm is dysfunctional" which is shown below
+7. Press test SFTP connection to make sure it successfully connects to localhost, if it doesn't, refer to [In case PHPStorm is dysfunctional](https://github.com/DRMF/DRMF/blob/master/doc/upload_and_connect.MD#in-case-phpstorm-is-dysfunctional)
 8. Go to the mappings tab
  - Local path:                                  navigate to where your local copy vagrant is on your computer
  - Deployment path on server 'meaningful name': navigate to where your instance has a copy of the vagrant
