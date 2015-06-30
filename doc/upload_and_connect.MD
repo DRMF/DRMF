@@ -44,24 +44,33 @@ Host INSTANCENAME
 ```
 *(From now on all you have to do to connect to the instance is*`ssh INSTANCENAME`*)*
 
+## Initial Setup for Git
+	Git is the platform in which developers can work together on a project.
+1. If you dont already have a running git repository, run `git init` in the folder in which you want to create your git repository
+2. Make sure to set up your git username and email before making any changes:
+ - Run `git config --global user.name "YOUR NAME"` to set the author's name
+ - Run `git config --global user.email "YOUR_EMAIL@example.com"` to set the authour's email
+3. To install the hook on your local machine, run `scp -p -P 29418 <GERRITUSERNAME>@gerrit.wikimedia.org:hooks/commit-msg .git/hooks/` 
+4. To check which remote you currently have, run `git remote -v` 
+ - If you need to add a new remote to push to run `git remote add NAME LINK_TO_REPO`
+5. To learn more about git read [this link](https://try.github.io/levels/1/challenges/1) or [that link](https://www.atlassian.com/git/tutorials/comparing-workflows/)
+
 ## Committing to Gerrit:
 	Gerrit is a cooperative platform which allows other users to review your code. You have locally stored commits, files you want to be reviewed, which can be pushed for review on Gerrit.
 
-1. Save the id_rsa content under your account WikiMedia-->Settings-->SSH Public Keys
-2. cd into folder of commitment (~/MathSearch)
-3. `git status` to check modified files
-4. `git add FILENAME` or `git add -A` if you want to commit everything from `git status`
-5. `git commit` to update the local commit files
-6. Add project description/title to file
-7. `git commit --amend --author='name <email>'` to change author info
-8. `git remote -v`
-9. `scp -p -P 29418 <GERRITUSERNAME>@gerrit.wikimedia.org:hooks/commit-msg .git/hooks/` to install the hook on your local machine
-10. `git review` to push for review on gerrit OR (if "git review" doesn't work) `git push [remote name] HEAD:refs/for/master`
+1. Save the id_rsa.pub (**Public**) content under your account WikiMedia-->Settings-->SSH Public Keys
+2. You might have to [add a remote](https://github.com/DRMF/DRMF/blob/master/doc/upload_and_connect.MD#initial-setup-for-git) which uses ssh rather than anonymous  https (for example `ssh://USERNAME@gerrit.wikimedia.org:29418/mediawiki/extensions/MathSearch` rather than `https://gerrit.wikimedia.org/r/mediawiki/extensions/MathSearch`)
+3. cd into folder of commitment (~/MathSearch)
+4. Run `git status` to check modified files
+5. Run `git add FILENAME` or `git add -A` if you want to commit everything from `git status`
+6. Run `git commit` to update the local commit files
+7. Add project description/title to file
+8. Run `git review` to push for review on gerrit OR (if "git review" doesn't work) run `git push [remote name] HEAD:refs/for/master` to push your commits anywhere else
 
-## Check changes/commitment
+## Check changes on gerrit
 
-1. Log onto WikiMedia
-2. Check Changes under personal settings
+1. Log on to gerrit
+2. In the upper left hand corner go to My-->Changes
 
 ## Squashing commits
 	Multiple commits can be squashed into a single upload on a branch with multiple patches.
