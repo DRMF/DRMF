@@ -16,9 +16,11 @@ for other extensions such as math search to create customized queries.
 * Get Wikitech account
  * Read and work through PDF file at bottom of http://www.formulasearchengine.com/review
 * Read the documentation for the Gerrit system
+* Read and follow the documentations for the NIST setup and connect guide https://github.com/DRMF/DRMF/blob/master/doc/upload_and_connect.MD
+* Create a wikitech account and report on the user name
+* Do a commit (https://phabricator.wikimedia.org/T104551) and get used to git review
 * Update math extension to implement line breaking 
  * http://www.mediawiki.org/wiki/Extension:Math/Displaystyle
-* Do a commit and review code
 * read the documentation for the CirrusSearch extension
 * Create a hook in the CirrusSearch extension which allows one to modify the search query syntax.
 
