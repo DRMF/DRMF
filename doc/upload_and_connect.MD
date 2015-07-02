@@ -1,4 +1,5 @@
 # Uploading and Connecting Guide
+######This guide contains a brief set of instructions for only certain problems. For a more in depth guide, in which you can learn more about what you are actually doing, visit ["How to become a MediaWiki hacker"](https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker)
 
 ## Connecting to an instance
 	An SSH key allows you to connect and communicate with a trusted server (e.g. drmf-ecf) without repeatedly re-entering passwords or other sensitive data.
