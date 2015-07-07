@@ -56,9 +56,24 @@ Host INSTANCENAME
  - If you need to add a new remote to push to run `git remote add NAME LINK_TO_REPO`
 5. To learn more about git read [this link](https://try.github.io/levels/1/challenges/1) or [that link](https://www.atlassian.com/git/tutorials/comparing-workflows/)
 
+## Keeping your local repository updated
+	Make sure you do this before making any changes as to aviod future complications.
+1. Find the project you are working with on [here](https://git.wikimedia.org/). This should contain the most updated version of your project. (Ex: [MathSearch Extension](https://git.wikimedia.org/summary/mediawiki%2Fextensions%2FMathSearch))
+2. Using the repository url, from your project, make a new remote called 'upstream' by running `git remote add upstream REPOSITORY_URL` (MathSearch repository url:  https://git.wikimedia.org/git/mediawiki/extensions/MathSearch.git)
+3. Run `git fetch upstream` to get the temporarily get access to the most updated version on the project you are working on
+4. Run `git diff master..upstream/master` to check the differences between your local repository and the most updated version. If nothing appears, then you have the most updated version on your local machine. Otherwise, continue to step 5
+5. There are many ways to approach this problem but the method being shown here will download a new fully updated branch and we will make it your new master branch. (**NOTE: THIS WILL REMOVE ALL THE CHANGES THAT YOU HAVEN'T COMMITTED**)
+6. Go to the project link you found in Step 1 above. (Ex: [MathSearch Extension](https://git.wikimedia.org/summary/mediawiki%2Fextensions%2FMathSearch))
+7. Find the most recent change (Usually at the top of the list) and click on `Diff`
+8. In this new page look for the `Change ID` this is usually put in the commit message
+9. Back in the terminal, run `git review -d CHANGE_ID` to get a new branch that is updated until that CHANGE_ID
+10. Run `git branch -D master` to remove the master branch on you local machine (**THIS WILL REMOVE ALL THE CHANGES THAT YOU HAVEN'T COMMITTED**)
+11. Run `git branch -m master` to change the name of your current branch to master
+
 ## Committing to Gerrit:
 	Gerrit is a cooperative platform which allows other users to review your code. You have locally stored commits, files you want to be reviewed, which can be pushed for review on Gerrit.
 
+######Before you make any changes you should check to see if you have the most updated version of whatever you will be commiting to visit [Keeping your local repository updated](https://github.com/DRMF/DRMF/blob/master/doc/upload_and_connect.MD#keeping-your-local-repository-updated)
 1. Save the id_rsa.pub (**Public**) content under your account WikiMedia-->Settings-->SSH Public Keys
 2. You might have to [add a remote](https://github.com/DRMF/DRMF/blob/master/doc/upload_and_connect.MD#initial-setup-for-git) which uses ssh rather than anonymous  https (for example `ssh://USERNAME@gerrit.wikimedia.org:29418/mediawiki/extensions/MathSearch` rather than `https://gerrit.wikimedia.org/r/mediawiki/extensions/MathSearch`)
 3. cd into folder of commitment (~/MathSearch)
