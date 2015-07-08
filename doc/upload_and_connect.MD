@@ -64,12 +64,8 @@ Host INSTANCENAME
 4. Run `git fetch upstream` to get the temporarily get access to the most updated version on the project you are working on
 5. Run `git diff master..upstream/master` to check the differences between your local repository and the most updated version. If nothing appears, then you have the most updated version on your local machine. Otherwise, continue to step 5
 6. There are many ways to approach this problem but the method being shown here will download a new fully updated branch and we will make it your new master branch. (**NOTE: THIS WILL REMOVE ALL THE CHANGES THAT YOU HAVEN'T COMMITTED**)
-7. Go to the project link you found in Step 1 above. (Ex: [MathSearch Extension](https://git.wikimedia.org/summary/mediawiki%2Fextensions%2FMathSearch))
-8. Find the most recent change (Usually at the top of the list) and click on `Diff`
-9. In this new page look for the `Change ID` this is usually put in the commit message
-10. Back in the terminal, run `git review -d CHANGE_ID` to get a new branch that is updated until that CHANGE_ID
-11. Run `git branch -D master` to remove the master branch on you local machine (**THIS WILL REMOVE ALL THE CHANGES THAT YOU HAVEN'T COMMITTED**)
-12. Run `git branch -m master` to change the name of your current branch to master
+7. Run `git pull`
+8. Redo steps 4 and 5 to see if you have any differences in your code and the most updated code
 
 ## Committing to Gerrit:
 	Gerrit is a cooperative platform which allows other users to review your code. You have locally stored commits, files you want to be reviewed, which can be pushed for review on Gerrit.
