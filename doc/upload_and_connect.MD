@@ -115,6 +115,16 @@ Host INSTANCENAME
 6. Run `cd extensions`
 7. Run `git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/EXTENSIONNAME` to get a copy of the extension you will be working on
 
+## How to import the DRMF database to your DRMF instance
+
+1. ssh into your instance (e.g. `ssh drmf-ecf`)
+2. change directories to the where the sql database is located (`cd /data/project/wdump`)
+3. Type in `ls` to see the files in the directory. There should be a file that looks like this: YEAR-MONTH-DAY-drmf.sql
+    The specific file I had was `2015-07-18.sql` but yours will be a more up to  date version.  
+4. Type in `mysql -u root -pvagrant wiki <2015-07-18-drmf.sql`
+This will run a mysql command with user root and pass vagrant on the wiki database and put the sql file into it.
+5. refresh your website (e.g. drmf-ecf.wmflabs.org)
+
 ## Installing PHPStorm
 	PHPStorm is an integrated development environment for PHP, HTML, and other forms of web development. It makes life much easier. Use it to store, edit, review, and upload files.
 
