@@ -196,4 +196,13 @@ This will run a mysql command with user root and pass vagrant on the wiki databa
 
 - Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file: [Link](http://www.svrnm.de/blog/fixed-netbeans-phpstorm-algorithm-negotiation-fail/))
 
- 
+## Tips on How to avoid `sudo`ing
+###If you are working at NIST or for any other high security facility, chances are, you are not allowed to run commands as root via `sudo`
+However, a lot of the setting up and uploading and connecting in this guide requires you to `sudo` inside of ** your ** instance. **NOT THE MACHINE!**
+> I repeat, using `sudo` on a NIST computer can and will get you in a lot of trouble so you cannot use it. 
+
+One way to avoid accidently `sudo`ing in your machine when you meant to do it on your instance is to create an alias on your instance so that everytime you type in that alias the `sudo` command is actually being implement.
+
+In my case, I made the alias for `sudo` be `doit`
+Follow [this](http://stefaanlippens.net/my_bashrc_aliases_profile_and_other_stuff) to make an alias ** on your instance** that way you never have to type `sudo` both on your instance and your local machine but typing `doit` will act as a `sudo` alias only when you type it into your instance. 
+Therefore if you accidently `doit` on your machine nothing will happen because no alias for `doit` exist. 
