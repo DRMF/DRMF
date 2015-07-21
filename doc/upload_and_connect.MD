@@ -196,7 +196,7 @@ This will run a mysql command with user root and pass vagrant on the wiki databa
 
 - Google your woes -- could potentially be a bug in the software (for instance, a fault in the /lib/jsch-0.1-50.jar file: [Link](http://www.svrnm.de/blog/fixed-netbeans-phpstorm-algorithm-negotiation-fail/))
 
-## Tips on How to avoid `sudo`ing
+## Tips on How to avoid accidently `sudo`ing on your local machine
 ###If you are working at NIST or for any other high security facility, chances are, you are not allowed to run commands as root via `sudo`
 However, a lot of the setting up and uploading and connecting in this guide requires you to `sudo` inside of ** your ** instance. **NOT THE MACHINE!**
 > I repeat, using `sudo` on a NIST computer can and will get you in a lot of trouble so you cannot use it. 
