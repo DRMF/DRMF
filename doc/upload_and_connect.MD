@@ -115,6 +115,32 @@ Host INSTANCENAME
 6. Run `cd extensions`
 7. Run `git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/EXTENSIONNAME` to get a copy of the extension you will be working on
 
+## Retrieving the formula page indexes
+	For use with either of the search engines (BaseX or MathWeb)
+	
+1. cd into your MathSearch extension directory
+2. Run `mkdir indexes` to make the folder in which you will store the indexs
+3. Run `cd maintainence` to get into the maintainence folder
+4. Run `php CreateMWSHarvest.php ../indexes/ 1000000000 --mwsns="mws:"` to actaully create the file with the indexes (it is located in .../MathSearch/index/math*.xml)
+
+## Installing, Configuring, and Running MathWeb Search
+	Use https://github.com/KWARC/mws for further documentation
+
+1. Run `sudo add-apt-repository ppa:radu-hambasan/math-web-search`
+2. Run `sudo apt-get install mws`
+3. Run `sudo mws-config create -p 9090 -i /vagrant/mediawiki/extensions/MathSearch/indexes wiki -- -e "xml"` This creates a config 
+4. Run `sudo mws-config enable wiki`
+
+## Installing and Running BaseX Search
+	Use https://github.com/TU-Berlin/mathosphere/blob/master/README.md and https://github.com/TU-Berlin/mathosphere/blob/master/restd/readme.md
+
+1. Run `git clone https://github.com/TU-Berlin/mathosphere.git` to get the mathosphere backend
+2. Run `cd mathoshpere` to get into the correct directory
+3. Run `git submodule init && git submodule update`
+4. Run `cd /your/path/to/mathosphere/restd`
+5. Run `mvn clean install`
+6. Run `mvn exec:java -Drestx.http.XForwardedSupport=all -Dpassword=mathosphere -Dpath=/your/path/to/the/index/file` this will launch a BaseX server
+
 ## How to import the DRMF database to your DRMF instance
 
 1. ssh into your instance (e.g. `ssh drmf-ecf`)
@@ -198,11 +224,11 @@ This will run a mysql command with user root and pass vagrant on the wiki databa
 
 ## Tips on How to avoid accidently `sudo`ing on your local machine
 ###If you are working at NIST or for any other high security facility, chances are, you are not allowed to run commands as root via `sudo`
-However, a lot of the setting up and uploading and connecting in this guide requires you to `sudo` inside of ** your ** instance. **NOT THE MACHINE!**
-> I repeat, using `sudo` on a NIST computer can and will get you in a lot of trouble so you cannot use it. 
+However, a lot of the setting up and uploading and connecting in this guide requires you to `sudo` inside of ** your** instance. **NOT THE LOCAL MACHINE!**
+> I repeat, using `sudo` on a NIST computer can and will get you in a lot of trouble (I know from experience) so you cannot use it. 
 
 One way to avoid accidently `sudo`ing in your machine when you meant to do it on your instance is to create an alias on your instance so that everytime you type in that alias the `sudo` command is actually being implement.
 
 In my case, I made the alias for `sudo` be `doit`
-Follow [this](http://stefaanlippens.net/my_bashrc_aliases_profile_and_other_stuff) to make an alias ** on your instance** that way you never have to type `sudo` both on your instance and your local machine but typing `doit` will act as a `sudo` alias only when you type it into your instance. 
+Follow [this](http://stefaanlippens.net/my_bashrc_aliases_profile_and_other_stuff) to make an alias **on your instance** that way you never have to type `sudo` both on your instance and your local machine but typing `doit` will act as a `sudo` alias only when you type it into your instance. 
 Therefore if you accidently `doit` on your machine nothing will happen because no alias for `doit` exist. 
