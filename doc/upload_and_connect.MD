@@ -6,7 +6,7 @@
 [Connecting to an Instance](https://github.com/DRMF/DRMF/blob/master/doc/The%20SSH%20Guide.MD#connecting-to-your-instance)
 
 ## Git, Gerrit, and GitHub
-	Blah, Blah, Blah
+	Git is a cooperative platform in which multiple software developers can ‘commit’ or make changes to the same existing code without destructive consequences. Gerrit is another code review platform in which software developers can upload their changes so that other developers can review to make sure that the code meets their expectations and standards. Finally GitHub is a repository where it is good practice to only upload working versions of code. This guide contains information on how to set up Git, using Git to commit to Gerrit, and how to keep your system updated.
 [Initial Setup for Git](https://github.com/DRMF/DRMF/blob/master/doc/Git%2C%20Gerrit%2C%20GitHub.MD#initial-setup-for-git)
 
 [Keeping your local repository updated](https://github.com/DRMF/DRMF/blob/master/doc/Git%2C%20Gerrit%2C%20GitHub.MD#keeping-your-local-repository-updated)
@@ -21,7 +21,7 @@
 
 
 ## DRMF-Specfic Information
-	 Blah, blah, blah
+	The next section of the guide contains DRMF server specific information. It contains guides on how to download the current indexes, creating and starting both the servers used for the Math Search extension, and also information on how to import databases onto your instance.
 [Cloning Wikimedia](https://github.com/DRMF/DRMF/blob/master/doc/DRMF-Specific%20Information.MD#cloning-wikimedia)
 
 [Retrieving the formula page indexes](https://github.com/DRMF/DRMF/blob/master/doc/DRMF-Specific%20Information.MD#retrieving-the-formula-page-indexes)
@@ -34,15 +34,16 @@
 
 
 ## PHPStorm
-	Blah, blah, blah
-[]()
+	Editing the files on the instance manually can be a hassle because editing directly on the instance is slow and there is no backup if mistakes are made. The last section involves installing and configuring the PHPStorm IDE so that it integrates a local and remote copy of your instance and automatically keeps them synchronized with each other, this way maintaining speed and a local backup.
+[Installing PHPStorm](https://github.com/DRMF/DRMF/blob/master/doc/PHPStorm.MD#installing-phpstorm)
 
-[]()
+[Configuring PHPStorm](https://github.com/DRMF/DRMF/blob/master/doc/PHPStorm.MD#configuring-phpstorm)
 
-[]()
+[Installing PHP](https://github.com/DRMF/DRMF/blob/master/doc/PHPStorm.MD#installing-php)
 
-[]()
+[Using PHPStorm to create a local server to test PHP files](https://github.com/DRMF/DRMF/blob/master/doc/PHPStorm.MD#using-phpstorm-to-create-a-local-server-to-test-php-files)
 
+[In case PHPStorm is dysfunctional](https://github.com/DRMF/DRMF/blob/master/doc/PHPStorm.MD#in-case-phpstorm-is-dysfunctional)
 
 
 ## Tips on How to avoid accidently `sudo`ing on your local machine
