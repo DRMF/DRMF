@@ -1,7 +1,7 @@
 # Uploading and Connecting Guide
 ######This guide contains a brief set of instructions for only certain problems. For a more in depth guide, in which you can learn more about what you are actually doing, visit ["How to become a MediaWiki hacker"](https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker)
 
-## SSH
+# SSH
 	This part of the guide contains information on connecting to you instance
 [Connecting to an Instance](https://github.com/DRMF/DRMF/blob/master/doc/The%20SSH%20Guide.MD#connecting-to-your-instance)
 
