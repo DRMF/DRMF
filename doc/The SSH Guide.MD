@@ -39,3 +39,5 @@ Host INSTANCENAME
     LocalForward 8080 localhost:80
 ```
 *(From now on all you have to do to connect to the instance is*`ssh INSTANCENAME`*)*
+
+See also [upstream documentation](https://wikitech.wikimedia.org/wiki/SSH_access)
