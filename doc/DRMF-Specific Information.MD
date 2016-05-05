@@ -15,7 +15,9 @@
 1. cd into your MathSearch extension directory
 2. Run `mkdir indexes` to make the folder in which you will store the indexs
 3. Run `cd maintainence` to get into the maintainence folder
-4. Run `php CreateMWSHarvest.php ../indexes/ 1000000000 --mwsns="mws:"` to actaully create the file with the indexes (it is located in .../MathSearch/index/math*.xml)
+4. Run `php UpdateMath.php -m latexml --hooks 0 300` to add the files to the database to be indexed. (Note: You may have to modify the file to set the global variable `$wgMathDisableTexFilter` to true until this issue is fixed.
+5. Run `php CreateMWSHarvest.php ../indexes/ 1000000000 --mwsns="mws:"` to actaully create the file with the indexes (it is located in .../MathSearch/index/math*.xml) 
+6. Note: drmf2016 uses a multiwiki setup, which means that you won't be able to use the php command. Use  the `mwscript` command instead. The exact command will be `mwscript extensions/MathSearch/maintenance/[filename] --wiki=wiki" [options]` Whatever path you provide to the `mwscript` command will be concatenated to the absolute path to your MediaWiki root directory. Any paths you use in the options should be absolute. 
 
 ## Installing, Configuring, and Running MathWeb Search
 	Use https://github.com/KWARC/mws for further documentation
